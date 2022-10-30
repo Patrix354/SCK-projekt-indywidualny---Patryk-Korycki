@@ -1,0 +1,236 @@
+$date
+	Sun Oct 30 19:51:34 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench $end
+$var wire 8 ! s_out_synth [7:0] $end
+$var wire 8 " s_out_model [7:0] $end
+$var wire 1 # s_carry_out_synth $end
+$var wire 1 $ s_carry_out_model $end
+$var reg 8 % s_a [7:0] $end
+$var reg 8 & s_b [7:0] $end
+$var reg 1 ' s_carry_in $end
+$scope module sub_model $end
+$var wire 8 ( i_a [7:0] $end
+$var wire 8 ) i_b [7:0] $end
+$var wire 1 ' i_carry $end
+$var reg 1 $ o_carry $end
+$var reg 8 * o_out [7:0] $end
+$upscope $end
+$scope module sub_synth $end
+$var wire 1 + _000_ $end
+$var wire 1 , _001_ $end
+$var wire 1 - _002_ $end
+$var wire 1 . _003_ $end
+$var wire 1 / _004_ $end
+$var wire 1 0 _005_ $end
+$var wire 1 1 _006_ $end
+$var wire 1 2 _007_ $end
+$var wire 1 3 _008_ $end
+$var wire 1 4 _009_ $end
+$var wire 1 5 _010_ $end
+$var wire 1 6 _011_ $end
+$var wire 1 7 _012_ $end
+$var wire 1 8 _013_ $end
+$var wire 1 9 _014_ $end
+$var wire 1 : _015_ $end
+$var wire 1 ; _016_ $end
+$var wire 1 < _017_ $end
+$var wire 1 = _018_ $end
+$var wire 1 > _019_ $end
+$var wire 1 ? _020_ $end
+$var wire 1 @ _021_ $end
+$var wire 1 A _022_ $end
+$var wire 1 B _023_ $end
+$var wire 1 C _024_ $end
+$var wire 1 D _025_ $end
+$var wire 1 E _026_ $end
+$var wire 1 F _027_ $end
+$var wire 1 G _028_ $end
+$var wire 1 H _029_ $end
+$var wire 1 I _030_ $end
+$var wire 1 J _031_ $end
+$var wire 1 K _032_ $end
+$var wire 1 L _033_ $end
+$var wire 1 M _034_ $end
+$var wire 1 N _035_ $end
+$var wire 1 O _036_ $end
+$var wire 1 P _037_ $end
+$var wire 1 Q _038_ $end
+$var wire 1 R _039_ $end
+$var wire 1 S _040_ $end
+$var wire 1 T _041_ $end
+$var wire 1 U _042_ $end
+$var wire 1 V _043_ $end
+$var wire 1 W _044_ $end
+$var wire 1 X _045_ $end
+$var wire 1 Y _046_ $end
+$var wire 1 Z _047_ $end
+$var wire 1 [ _048_ $end
+$var wire 1 \ _049_ $end
+$var wire 1 ] _050_ $end
+$var wire 1 ^ _051_ $end
+$var wire 1 _ _052_ $end
+$var wire 1 ` _053_ $end
+$var wire 1 a _054_ $end
+$var wire 1 b _055_ $end
+$var wire 1 c _056_ $end
+$var wire 1 d _057_ $end
+$var wire 8 e i_a [7:0] $end
+$var wire 8 f i_b [7:0] $end
+$var wire 1 ' i_carry $end
+$var wire 1 # o_carry $end
+$var wire 8 g o_out [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b101 g
+b101 f
+b1010 e
+0d
+0c
+0b
+0a
+1`
+0_
+1^
+0]
+0\
+0[
+0Z
+1Y
+1X
+0W
+0V
+0U
+0T
+0S
+0R
+1Q
+1P
+0O
+0N
+1M
+0L
+0K
+0J
+1I
+1H
+0G
+0F
+1E
+1D
+0C
+0B
+0A
+1@
+1?
+1>
+1=
+1<
+1;
+0:
+09
+08
+17
+16
+15
+04
+13
+12
+11
+10
+1/
+1.
+1-
+0,
+1+
+b101 *
+b101 )
+b1010 (
+0'
+b101 &
+b1010 %
+0$
+0#
+b101 "
+b101 !
+$end
+#1000
+1#
+1c
+1\
+1[
+1T
+1S
+1L
+1K
+1C
+1D
+1B
+06
+1:
+1>
+1A
+0.
+05
+b11111110 !
+b11111110 g
+19
+0<
+0=
+0@
+1,
+08
+1$
+b11111110 "
+b11111110 *
+b1010 &
+b1010 )
+b1010 f
+b1000 %
+b1000 (
+b1000 e
+#2000
+0#
+0c
+0\
+0[
+0T
+0S
+0L
+0K
+0>
+0C
+0:
+0B
+0D
+03
+07
+0;
+15
+b111 !
+b111 g
+0+
+0,
+0-
+14
+18
+1=
+0$
+b111 "
+b111 *
+b1000 &
+b1000 )
+b1000 f
+b1111 %
+b1111 (
+b1111 e
+#3000
