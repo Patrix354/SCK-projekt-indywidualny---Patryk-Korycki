@@ -87,6 +87,22 @@ module \$paramod\comparator\N=s32'00000000000000000000000000001000 (i_a, i_b, o_
   wire [7:0] i_b;
   output o_out;
   wire o_out;
+  assign _065_ = _062_ & _064_;
+  assign _066_ = _061_ | _063_;
+  assign _067_ = _060_ & _065_;
+  assign _068_ = _059_ | _066_;
+  assign _069_ = _016_ & _068_;
+  assign _070_ = _015_ | _067_;
+  assign _071_ = _007_ | i_a[0];
+  assign _072_ = _027_ & _062_;
+  assign _073_ = _049_ & _072_;
+  assign _074_ = _016_ & _071_;
+  assign _075_ = _073_ & _074_;
+  assign _076_ = _041_ & _075_;
+  assign _077_ = _070_ | _076_;
+  assign _078_ = _000_ & _077_;
+  assign _079_ = i_b[7] & _069_;
+  assign o_out = _078_ | _079_;
   assign _000_ = ~i_a[7];
   assign _001_ = ~i_b[3];
   assign _002_ = ~i_a[3];
@@ -152,22 +168,6 @@ module \$paramod\comparator\N=s32'00000000000000000000000000001000 (i_a, i_b, o_
   assign _062_ = _009_ | i_a[6];
   assign _063_ = _022_ & _025_;
   assign _064_ = _021_ | _024_;
-  assign _065_ = _062_ & _064_;
-  assign _066_ = _061_ | _063_;
-  assign _067_ = _060_ & _065_;
-  assign _068_ = _059_ | _066_;
-  assign _069_ = _016_ & _068_;
-  assign _070_ = _015_ | _067_;
-  assign _071_ = _007_ | i_a[0];
-  assign _072_ = _027_ & _062_;
-  assign _073_ = _049_ & _072_;
-  assign _074_ = _016_ & _071_;
-  assign _075_ = _073_ & _074_;
-  assign _076_ = _041_ & _075_;
-  assign _077_ = _070_ | _076_;
-  assign _078_ = _000_ & _077_;
-  assign _079_ = i_b[7] & _069_;
-  assign o_out = _078_ | _079_;
 endmodule
 
 module \$paramod\shifter\N=s32'00000000000000000000000000001000 (i_a, i_b, o_out, o_ERR);
@@ -403,18 +403,6 @@ module \$paramod\subtract\N=s32'00000000000000000000000000001000 (i_a, i_b, i_ca
   wire o_carry;
   output [7:0] o_out;
   wire [7:0] o_out;
-  assign o_out[6] = _041_ ^ _047_;
-  assign _049_ = _045_ & _048_;
-  assign _050_ = i_b[7] & _007_;
-  assign _051_ = i_b[7] ^ _007_;
-  assign _052_ = i_b[7] ^ i_a[7];
-  assign _053_ = _042_ | _051_;
-  assign _054_ = _042_ & _051_;
-  assign _055_ = _042_ ^ _052_;
-  assign _056_ = _049_ & _053_;
-  assign o_out[7] = _049_ ^ _055_;
-  assign _057_ = _050_ | _054_;
-  assign o_carry = _056_ | _057_;
   assign _000_ = ~i_a[0];
   assign _001_ = ~i_a[1];
   assign _002_ = ~i_a[2];
@@ -470,41 +458,108 @@ module \$paramod\subtract\N=s32'00000000000000000000000000001000 (i_a, i_b, i_ca
   assign _046_ = _034_ ^ _043_;
   assign _047_ = ~_046_;
   assign _048_ = _041_ | _047_;
+  assign o_out[6] = _041_ ^ _047_;
+  assign _049_ = _045_ & _048_;
+  assign _050_ = i_b[7] & _007_;
+  assign _051_ = i_b[7] ^ _007_;
+  assign _052_ = i_b[7] ^ i_a[7];
+  assign _053_ = _042_ | _051_;
+  assign _054_ = _042_ & _051_;
+  assign _055_ = _042_ ^ _052_;
+  assign _056_ = _049_ & _053_;
+  assign o_out[7] = _049_ ^ _055_;
+  assign _057_ = _050_ | _054_;
+  assign o_carry = _056_ | _057_;
 endmodule
 
-module ALU_rtl(i_a, i_b, i_carry, o_carry, o_out_sub, o_out_comp, o_out_shl, o_ERR_shl);
+module ALU_rtl(i_a, i_b, i_carry, o_carry, o_out, o_ERR, i_op);
+  wire _00_;
+  wire _01_;
+  wire _02_;
+  wire _03_;
+  wire _04_;
+  wire _05_;
+  wire _06_;
+  wire _07_;
+  wire _08_;
+  wire _09_;
+  wire _10_;
+  wire _11_;
+  wire _12_;
+  wire _13_;
+  wire _14_;
+  wire _15_;
+  wire _16_;
+  wire _17_;
+  wire _18_;
+  wire _19_;
+  wire _20_;
+  wire _21_;
+  wire _22_;
   input [7:0] i_a;
   wire [7:0] i_a;
   input [7:0] i_b;
   wire [7:0] i_b;
   input i_carry;
   wire i_carry;
-  output o_ERR_shl;
-  wire o_ERR_shl;
+  input [1:0] i_op;
+  wire [1:0] i_op;
+  output o_ERR;
+  wire o_ERR;
   output o_carry;
   wire o_carry;
-  output o_out_comp;
-  wire o_out_comp;
-  output [7:0] o_out_shl;
-  wire [7:0] o_out_shl;
-  output [7:0] o_out_sub;
-  wire [7:0] o_out_sub;
+  output [7:0] o_out;
+  wire [7:0] o_out;
+  wire s_out_comp;
+  wire [7:0] s_out_shl;
+  wire [7:0] s_out_sub;
+  assign _00_ = ~i_op[0];
+  assign _01_ = ~i_op[1];
+  assign _02_ = _00_ & i_op[1];
+  assign _03_ = s_out_shl[0] & _02_;
+  assign _04_ = i_op[0] | s_out_sub[0];
+  assign _05_ = _00_ | s_out_comp;
+  assign _06_ = _04_ & _05_;
+  assign _07_ = _01_ & _06_;
+  assign o_out[0] = _03_ | _07_;
+  assign _08_ = s_out_shl[1] & _02_;
+  assign _09_ = _00_ & _01_;
+  assign _10_ = s_out_sub[1] & _09_;
+  assign o_out[1] = _08_ | _10_;
+  assign _11_ = s_out_shl[2] & _02_;
+  assign _12_ = s_out_sub[2] & _09_;
+  assign o_out[2] = _11_ | _12_;
+  assign _13_ = s_out_shl[3] & _02_;
+  assign _14_ = s_out_sub[3] & _09_;
+  assign o_out[3] = _13_ | _14_;
+  assign _15_ = s_out_shl[4] & _02_;
+  assign _16_ = s_out_sub[4] & _09_;
+  assign o_out[4] = _15_ | _16_;
+  assign _17_ = s_out_shl[5] & _02_;
+  assign _18_ = s_out_sub[5] & _09_;
+  assign o_out[5] = _17_ | _18_;
+  assign _19_ = s_out_shl[6] & _02_;
+  assign _20_ = s_out_sub[6] & _09_;
+  assign o_out[6] = _19_ | _20_;
+  assign _21_ = s_out_shl[7] & _02_;
+  assign _22_ = s_out_sub[7] & _09_;
+  assign o_out[7] = _21_ | _22_;
   \$paramod\comparator\N=s32'00000000000000000000000000001000  comp_model (
     .i_a(i_a),
     .i_b(i_b),
-    .o_out(o_out_comp)
+    .o_out(s_out_comp)
   );
   \$paramod\shifter\N=s32'00000000000000000000000000001000  shl_model (
     .i_a(i_a),
     .i_b(i_b),
-    .o_ERR(o_ERR_shl),
-    .o_out(o_out_shl)
+    .o_ERR(o_ERR),
+    .o_out(s_out_shl)
   );
   \$paramod\subtract\N=s32'00000000000000000000000000001000  sub_model (
     .i_a(i_a),
     .i_b(i_b),
     .i_carry(i_carry),
     .o_carry(o_carry),
-    .o_out(o_out_sub)
+    .o_out(s_out_sub)
   );
 endmodule
