@@ -9,6 +9,8 @@ module subtract(i_a, i_b, i_carry, o_out, o_carry);
 
     always_comb begin
         {o_carry, o_out} = i_a - i_b - i_carry;
+        // Wszystko działa jeśli wejścia są w NKB 
+        // Niestety operacja wykonana w ten spodób interpretuje, że liczby na wejściu są w NKB
     end
 
 endmodule

@@ -1,4 +1,4 @@
-EXAMPLE     = subtract
+EXAMPLE     = ALU
 MODEL_FILES = ${EXAMPLE}.sv
 RTL_FILES   = ${EXAMPLE}_rtl.sv
 TB_FILES    = testbench.sv
@@ -14,7 +14,7 @@ sim: compile
 compile: clear
     # Kompilacja modulow verilog do programu wykonywalnego
 	iverilog -g2005-sv                               \
-	    ${MODEL_FILES} ${RTL_FILES} ${TB_FILES}      \
+	 ${RTL_FILES} ${TB_FILES}      \
 		-o ${EXAMPLE}.iveri.run                  \
 		    |& tee ${EXAMPLE}.iveri.log
 
