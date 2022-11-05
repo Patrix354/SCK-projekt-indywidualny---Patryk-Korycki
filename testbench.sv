@@ -43,6 +43,9 @@ module testbench;
                 s_a = 8'b11111100;
                 s_b = 8'b11111110;
             #1
+                s_a = 8'b11111110;
+                s_b = 8'b11111110;
+            #1
             $finish;
         end
 
