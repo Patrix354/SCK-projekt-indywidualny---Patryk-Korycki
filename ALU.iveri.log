@@ -1,4 +1,6 @@
-./comparator.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
-./comparator.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
-./comparator.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
-./comparator.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+./comparator.sv:14: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+./comparator.sv:14: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+./comparator.sv:14: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+./comparator.sv:14: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+./shifter.sv:12: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+./shifter.sv:12: sorry: constant selects in always_* processes are not currently supported (all bits will be included).

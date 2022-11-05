@@ -1,9 +1,6 @@
 `define ZNAK_A i_a[N-1]
 `define ZNAK_B i_b[N-1]
 
-`define MINUS 1'b1
-`define PLUS 1'b0
-
 `define MODUL_A i_a[N-2:0]
 `define MODUL_B i_b[N-2:0]
 
