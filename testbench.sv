@@ -30,43 +30,37 @@ module testbench;
                                         .i_op(s_op), .o_even(s_even_synth), .o_single(s_single_synth));    // model po syntezie
 
     initial begin
-                $dumpfile("signals.vcd");
-                $dumpvars(0,testbench);
+            $dumpfile("signals.vcd");
+            $dumpvars(0,testbench);
 
             $display("start");
-                s_op = 2'b10;  // Shifter
-                s_a = 8'd10;
-                s_b = 8'd5;
-            #1  
-                s_a = 8'd8;
-                s_b = 8'd10;
-            #1  
-                s_a = 8'd15;
-                s_b = 8'd8;
-            
-            #1
-                s_a = 8'b00000001;
-                s_b = 8'b00000010;
-            #1
-            s_op = 2'b00;   //Subtraktor                
-            
-                s_a = 8'd10;
-                s_b = 8'd5;
-            #1  
-                s_a = 8'd8;
-                s_b = 8'd10;
-            #1  
-                s_a = 8'd15;
-                s_b = 8'd8;
-            
-            #1
-                s_a = 8'd1;
-                s_b = 8'd3;
-            #1
-                s_a = 8'b00000001;
-                s_b = 8'b10000010;
-            #1
+            s_op = 2'b00;   //Subtraktor  
+        
+        #1
+            s_op = 2'b01;   // Komparator
+        
+        #1
+            s_op = 2'b10;  // Shifter              
+        
+        #1
+            s_op = 2'b11;   // Zmieniacz bitu
 
+            s_a = 8'b10101010;
+            s_b = 8'b10000001;
+            #1
+            s_a = 8'b10101010;
+            s_b = 8'b00000001;
+            #1
+            s_a = 8'b10101010;
+            s_b = 8'b00000111;
+            #1
+            s_a = 8'b10101010;
+            s_b = 8'b00000011;
+            #1
+            s_a = 8'b11111111;
+            s_b = 8'b00000001;
+        
+        #1
             $display("Done");
             $finish;
         end

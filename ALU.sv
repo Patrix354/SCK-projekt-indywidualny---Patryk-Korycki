@@ -1,6 +1,7 @@
 `include "subtract.sv"
 `include "comparator.sv"
 `include "shifter.sv"
+`include "changer.sv"
 
 module ALU(i_a, i_b, i_op, o_out, o_carry, o_ERR, o_even, o_single);
 
@@ -20,9 +21,11 @@ module ALU(i_a, i_b, i_op, o_out, o_carry, o_ERR, o_even, o_single);
     // Sygnały wewnętrzne
     logic [BITS-1:0] s_out_shl;
     logic [BITS-1:0] s_out_sub;
+    logic [BITS-1:0] s_out_chg;
     logic s_out_comp;
     logic s_carry_sub;
     logic s_ERR_shl;
+    logic s_ERR_chg;
     
     // Zmienne
     int zeros;
@@ -30,23 +33,29 @@ module ALU(i_a, i_b, i_op, o_out, o_carry, o_ERR, o_even, o_single);
     subtract     #(.N(BITS))   sub_model    (.i_a(i_a), .i_b(i_b), .o_out(s_out_sub), .o_carry(s_carry_sub));
     comparator     #(.N(BITS))   comp_model    (.i_a(i_a), .i_b(i_b), .o_out(s_out_comp));
     shifter         #(.N(BITS))  shl_model      (.i_a(i_a), .i_b(i_b), .o_out(s_out_shl), .o_ERR(s_ERR_shl));
+    changer         #(.N(BITS))  chg_model      (.i_a(i_a), .i_b(i_b), .o_out(s_out_chg), .o_ERR(s_ERR_chg));
 
     always_comb begin
-        priority case (i_op)
-            2'b00:  begin 
+        case (i_op)
+            2'b00:  begin   //Subtraktor
                 o_ERR = '0;
                 o_out = s_out_sub;
                 o_carry = s_carry_sub;
             end
-            2'b01:  begin
+            2'b01:  begin   // Komparator
                 o_ERR = '0;
                 o_out = 8'b0 | s_out_comp;
                 o_carry = '0;
             end
-            2'b10:  begin
+            2'b10:  begin   // Shifter
                 o_ERR = s_ERR_shl;
                 o_out = s_out_shl;
                 o_carry = '0;   // Później zrobię przeniesienie dla shiftera
+            end
+            2'b11:  begin   // Zmieniacz bitu
+                o_ERR = s_ERR_chg;
+                o_out = s_out_chg;
+                o_carry = '0;
             end
             default: begin
                 o_out = '0;
