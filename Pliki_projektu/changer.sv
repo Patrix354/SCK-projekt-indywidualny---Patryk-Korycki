@@ -15,7 +15,7 @@ module changer(i_a, i_b, o_out, o_ERR);
 
     always_comb begin
         if(`ZNAK_B || (`MODUL_B >= N)) begin
-            o_ERR = 1'b1;
+            o_ERR = '1;
             o_out = '0;
         end
         else begin

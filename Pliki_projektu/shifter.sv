@@ -17,7 +17,7 @@ module shifter(i_a, i_b, o_out, o_ERR, o_ovf);
 
     always_comb begin
         if(`ZNAK_B) begin
-            o_ERR = 1'b1;
+            o_ERR = '1;
             o_out = '0;
             s_out = '0;
             o_ovf = '0;

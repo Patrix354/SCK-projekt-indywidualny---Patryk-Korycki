@@ -31,10 +31,10 @@ module ALU(i_a, i_b, i_op, o_out, o_ovf, o_ERR, o_even, o_single);
     // Zmienne
     int zeros;
     
-    subtract     #(.N(BITS))   sub_model    (.i_a(i_a), .i_b(i_b), .o_out(s_out_sub), .o_carry(s_carry_sub));
-    comparator     #(.N(BITS))   comp_model    (.i_a(i_a), .i_b(i_b), .o_out(s_out_comp));
-    shifter         #(.N(BITS))  shl_model      (.i_a(i_a), .i_b(i_b), .o_out(s_out_shl), .o_ERR(s_ERR_shl), .o_ovf(s_ovf_shl));
-    changer         #(.N(BITS))  chg_model      (.i_a(i_a), .i_b(i_b), .o_out(s_out_chg), .o_ERR(s_ERR_chg));
+    subtract     #(.N(BITS))   sub    (.i_a(i_a), .i_b(i_b), .o_out(s_out_sub), .o_carry(s_carry_sub));
+    comparator     #(.N(BITS))   comp    (.i_a(i_a), .i_b(i_b), .o_out(s_out_comp));
+    shifter         #(.N(BITS))  shl      (.i_a(i_a), .i_b(i_b), .o_out(s_out_shl), .o_ERR(s_ERR_shl), .o_ovf(s_ovf_shl));
+    changer         #(.N(BITS))  chg      (.i_a(i_a), .i_b(i_b), .o_out(s_out_chg), .o_ERR(s_ERR_chg));
 
     always_comb begin
         case (i_op)
@@ -45,7 +45,7 @@ module ALU(i_a, i_b, i_op, o_out, o_ovf, o_ERR, o_even, o_single);
             end
             2'b01:  begin   // Komparator
                 o_ERR = '0;
-                o_out = 8'b0 | s_out_comp;
+                o_out = '0 | s_out_comp;
                 o_ovf = '0;
             end
             2'b10:  begin   // Shifter
@@ -65,8 +65,6 @@ module ALU(i_a, i_b, i_op, o_out, o_ovf, o_ERR, o_even, o_single);
             end
         endcase
 
-        o_even = '0;
-        o_single = '0;
         zeros = 0;
 
         for(int i = 0; i < BITS; i = i + 1) begin
@@ -85,8 +83,6 @@ module ALU(i_a, i_b, i_op, o_out, o_ovf, o_ERR, o_even, o_single);
             o_even = 1'b0;
             o_single = 1'b0;
         end
-
-
     end
 
 
