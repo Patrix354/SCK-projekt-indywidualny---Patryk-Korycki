@@ -10,8 +10,8 @@ module testbench;
     logic [BITS-1:0] s_out_model;
     logic [BITS-1:0] s_out_synth;
 
-    logic s_carry_out_synth;
-    logic s_carry_out_model;
+    logic s_ovf_out_synth;
+    logic s_ovf_out_model;
 
     logic s_ERR_model;
     logic s_ERR_synth;
@@ -24,9 +24,9 @@ module testbench;
 
     logic [1:0] s_op;
 
-    ALU     #(.BITS(BITS))   alu_model    (.i_a(s_a), .i_b(s_b), .o_out(s_out_model), .o_carry(s_carry_out_model), .o_ERR(s_ERR_model), 
+    ALU     #(.BITS(BITS))   alu_model    (.i_a(s_a), .i_b(s_b), .o_out(s_out_model), .o_ovf(s_ovf_out_model), .o_ERR(s_ERR_model), 
                                             .i_op(s_op), .o_even(s_even_model), .o_single(s_single_model));    // model oryginalny
-    ALU_rtl               alu_synth    (.i_a(s_a), .i_b(s_b), .o_out(s_out_synth), .o_carry(s_carry_out_synth), .o_ERR(s_ERR_synth),
+    ALU_rtl               alu_synth    (.i_a(s_a), .i_b(s_b), .o_out(s_out_synth), .o_ovf(s_ovf_out_synth), .o_ERR(s_ERR_synth),
                                         .i_op(s_op), .o_even(s_even_synth), .o_single(s_single_synth));    // model po syntezie
 
     initial begin
@@ -40,7 +40,21 @@ module testbench;
             s_op = 2'b01;   // Komparator
         
         #1
-            s_op = 2'b10;  // Shifter              
+            s_op = 2'b10;  // Shifter      
+            s_a = 8'b10000010;
+            s_b = 8'b00000010;
+            #1
+            s_a = 8'b00000011;
+            s_b = 8'b10000001;
+            #1
+            s_a = 8'b00000011;
+            s_b = 8'b00000011;
+            #1
+            s_a = 8'b01000011;
+            s_b = 8'b00000100;
+            #1
+            s_a = 8'b11000000;
+            s_b = 8'b00000001;
         
         #1
             s_op = 2'b11;   // Zmieniacz bitu

@@ -107,16 +107,16 @@ Removed 0 unused modules.
 Cleaned up 0 empty switches.
 
 3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 1 switch rules as full_case in process $proc$changer.sv:0$78 in module $paramod\changer\N=s32'00000000000000000000000000001000.
-Marked 1 switch rules as full_case in process $proc$shifter.sv:0$75 in module $paramod\shifter\N=s32'00000000000000000000000000001000.
-Marked 4 switch rules as full_case in process $proc$comparator.sv:0$64 in module $paramod\comparator\N=s32'00000000000000000000000000001000.
-Removed 1 dead cases from process $proc$ALU.sv:0$24 in module ALU_rtl.
-Marked 3 switch rules as full_case in process $proc$ALU.sv:0$24 in module ALU_rtl.
+Marked 1 switch rules as full_case in process $proc$changer.sv:0$82 in module $paramod\changer\N=s32'00000000000000000000000000001000.
+Marked 2 switch rules as full_case in process $proc$shifter.sv:0$77 in module $paramod\shifter\N=s32'00000000000000000000000000001000.
+Marked 4 switch rules as full_case in process $proc$comparator.sv:0$66 in module $paramod\comparator\N=s32'00000000000000000000000000001000.
+Removed 1 dead cases from process $proc$ALU.sv:0$26 in module ALU_rtl.
+Marked 3 switch rules as full_case in process $proc$ALU.sv:0$26 in module ALU_rtl.
 Removed a total of 1 dead cases.
 
 3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
 Removed 0 redundant assignments.
-Promoted 13 assignments to connections.
+Promoted 15 assignments to connections.
 
 3.2.4. Executing PROC_INIT pass (extract init attributes).
 
@@ -124,65 +124,71 @@ Promoted 13 assignments to connections.
 
 3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
 Converted 0 switches.
-<suppressed ~9 debug messages>
+<suppressed ~10 debug messages>
 
 3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `$paramod\changer\N=s32'00000000000000000000000000001000.$proc$changer.sv:0$78'.
+Creating decoders for process `$paramod\changer\N=s32'00000000000000000000000000001000.$proc$changer.sv:0$82'.
      1/2: $1\o_out[7:0]
      2/2: $1\o_ERR[0:0]
-Creating decoders for process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$75'.
-     1/2: $1\o_out[7:0]
-     2/2: $1\o_ERR[0:0]
-Creating decoders for process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$64'.
+Creating decoders for process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$77'.
+     1/5: $2\o_ovf[0:0]
+     2/5: $1\o_ovf[0:0]
+     3/5: $1\s_out[15:0]
+     4/5: $1\o_out[7:0]
+     5/5: $1\o_ERR[0:0]
+Creating decoders for process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$66'.
      1/4: $4\o_out[0:0]
      2/4: $3\o_out[0:0]
      3/4: $2\o_out[0:0]
      4/4: $1\o_out[0:0]
-Creating decoders for process `$paramod\subtract\N=s32'00000000000000000000000000001000.$proc$subtract.sv:0$62'.
-Creating decoders for process `\ALU_rtl.$proc$ALU.sv:0$24'.
+Creating decoders for process `$paramod\subtract\N=s32'00000000000000000000000000001000.$proc$subtract.sv:0$64'.
+Creating decoders for process `\ALU_rtl.$proc$ALU.sv:0$26'.
      1/7: $2\o_single[0:0]
      2/7: $2\o_even[0:0]
      3/7: $1\o_single[0:0]
      4/7: $1\o_even[0:0]
-     5/7: $1\o_carry[0:0]
+     5/7: $1\o_ovf[0:0]
      6/7: $1\o_out[7:0]
      7/7: $1\o_ERR[0:0]
 
 3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `$paramod\changer\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\changer\N=s32'00000000000000000000000000001000.$proc$changer.sv:0$78'.
-No latch inferred for signal `$paramod\changer\N=s32'00000000000000000000000000001000.\o_ERR' from process `$paramod\changer\N=s32'00000000000000000000000000001000.$proc$changer.sv:0$78'.
-No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$75'.
-No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_ERR' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$75'.
-No latch inferred for signal `$paramod\comparator\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$64'.
-No latch inferred for signal `$paramod\subtract\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\subtract\N=s32'00000000000000000000000000001000.$proc$subtract.sv:0$62'.
-No latch inferred for signal `$paramod\subtract\N=s32'00000000000000000000000000001000.\o_carry' from process `$paramod\subtract\N=s32'00000000000000000000000000001000.$proc$subtract.sv:0$62'.
-No latch inferred for signal `\ALU_rtl.\o_out' from process `\ALU_rtl.$proc$ALU.sv:0$24'.
-No latch inferred for signal `\ALU_rtl.\o_carry' from process `\ALU_rtl.$proc$ALU.sv:0$24'.
-No latch inferred for signal `\ALU_rtl.\o_ERR' from process `\ALU_rtl.$proc$ALU.sv:0$24'.
-No latch inferred for signal `\ALU_rtl.\o_even' from process `\ALU_rtl.$proc$ALU.sv:0$24'.
-No latch inferred for signal `\ALU_rtl.\o_single' from process `\ALU_rtl.$proc$ALU.sv:0$24'.
-No latch inferred for signal `\ALU_rtl.\zeros' from process `\ALU_rtl.$proc$ALU.sv:0$24'.
-No latch inferred for signal `\ALU_rtl.$fordecl_block$1.i' from process `\ALU_rtl.$proc$ALU.sv:0$24'.
+No latch inferred for signal `$paramod\changer\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\changer\N=s32'00000000000000000000000000001000.$proc$changer.sv:0$82'.
+No latch inferred for signal `$paramod\changer\N=s32'00000000000000000000000000001000.\o_ERR' from process `$paramod\changer\N=s32'00000000000000000000000000001000.$proc$changer.sv:0$82'.
+No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$77'.
+No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_ERR' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$77'.
+No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_ovf' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$77'.
+No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\s_out' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$77'.
+No latch inferred for signal `$paramod\comparator\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$66'.
+No latch inferred for signal `$paramod\subtract\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\subtract\N=s32'00000000000000000000000000001000.$proc$subtract.sv:0$64'.
+No latch inferred for signal `$paramod\subtract\N=s32'00000000000000000000000000001000.\o_carry' from process `$paramod\subtract\N=s32'00000000000000000000000000001000.$proc$subtract.sv:0$64'.
+No latch inferred for signal `\ALU_rtl.\o_out' from process `\ALU_rtl.$proc$ALU.sv:0$26'.
+No latch inferred for signal `\ALU_rtl.\o_ERR' from process `\ALU_rtl.$proc$ALU.sv:0$26'.
+No latch inferred for signal `\ALU_rtl.\o_ovf' from process `\ALU_rtl.$proc$ALU.sv:0$26'.
+No latch inferred for signal `\ALU_rtl.\o_even' from process `\ALU_rtl.$proc$ALU.sv:0$26'.
+No latch inferred for signal `\ALU_rtl.\o_single' from process `\ALU_rtl.$proc$ALU.sv:0$26'.
+No latch inferred for signal `\ALU_rtl.\zeros' from process `\ALU_rtl.$proc$ALU.sv:0$26'.
+No latch inferred for signal `\ALU_rtl.$fordecl_block$1.i' from process `\ALU_rtl.$proc$ALU.sv:0$26'.
 
 3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
 
 3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Found and cleaned up 1 empty switch in `$paramod\changer\N=s32'00000000000000000000000000001000.$proc$changer.sv:0$78'.
-Removing empty process `$paramod\changer\N=s32'00000000000000000000000000001000.$proc$changer.sv:0$78'.
-Found and cleaned up 1 empty switch in `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$75'.
-Removing empty process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$75'.
-Found and cleaned up 4 empty switches in `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$64'.
-Removing empty process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$64'.
-Removing empty process `$paramod\subtract\N=s32'00000000000000000000000000001000.$proc$subtract.sv:0$62'.
-Found and cleaned up 3 empty switches in `\ALU_rtl.$proc$ALU.sv:0$24'.
-Removing empty process `ALU_rtl.$proc$ALU.sv:0$24'.
-Cleaned up 9 empty switches.
+Found and cleaned up 1 empty switch in `$paramod\changer\N=s32'00000000000000000000000000001000.$proc$changer.sv:0$82'.
+Removing empty process `$paramod\changer\N=s32'00000000000000000000000000001000.$proc$changer.sv:0$82'.
+Found and cleaned up 2 empty switches in `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$77'.
+Removing empty process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$77'.
+Found and cleaned up 4 empty switches in `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$66'.
+Removing empty process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$66'.
+Removing empty process `$paramod\subtract\N=s32'00000000000000000000000000001000.$proc$subtract.sv:0$64'.
+Found and cleaned up 3 empty switches in `\ALU_rtl.$proc$ALU.sv:0$26'.
+Removing empty process `ALU_rtl.$proc$ALU.sv:0$26'.
+Cleaned up 10 empty switches.
 
 3.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\changer\N=s32'00000000000000000000000000001000.
 Optimizing module $paramod\shifter\N=s32'00000000000000000000000000001000.
+<suppressed ~1 debug messages>
 Optimizing module $paramod\comparator\N=s32'00000000000000000000000000001000.
 Optimizing module $paramod\subtract\N=s32'00000000000000000000000000001000.
 Optimizing module ALU_rtl.
@@ -202,8 +208,8 @@ Finding unused cells or wires in module $paramod\shifter\N=s32'00000000000000000
 Finding unused cells or wires in module $paramod\comparator\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module $paramod\subtract\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module \ALU_rtl..
-Removed 0 unused cells and 73 unused wires.
-<suppressed ~16 debug messages>
+Removed 1 unused cells and 86 unused wires.
+<suppressed ~18 debug messages>
 
 3.5. Executing CHECK pass (checking for obvious problems).
 Checking module $paramod\changer\N=s32'00000000000000000000000000001000...
@@ -241,16 +247,17 @@ Running muxtree optimizer on module $paramod\comparator\N=s32'000000000000000000
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
-    dead port 1/2 on $mux $procmux$102.
-    dead port 1/2 on $mux $procmux$105.
-    dead port 1/2 on $mux $procmux$111.
-    dead port 1/2 on $mux $procmux$114.
-    dead port 1/2 on $mux $procmux$120.
-    dead port 1/2 on $mux $procmux$99.
+    dead port 1/2 on $mux $procmux$115.
+    dead port 1/2 on $mux $procmux$118.
+    dead port 1/2 on $mux $procmux$121.
+    dead port 1/2 on $mux $procmux$127.
+    dead port 1/2 on $mux $procmux$130.
+    dead port 1/2 on $mux $procmux$136.
 Running muxtree optimizer on module $paramod\shifter\N=s32'00000000000000000000000000001000..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$97.
 Running muxtree optimizer on module $paramod\subtract\N=s32'00000000000000000000000000001000..
   Creating internal representation of mux trees.
   No muxes found in this module.
@@ -258,10 +265,10 @@ Running muxtree optimizer on module \ALU_rtl..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
-    dead port 1/2 on $mux $procmux$129.
-    dead port 1/2 on $mux $procmux$134.
-Removed 8 multiplexer ports.
-<suppressed ~10 debug messages>
+    dead port 1/2 on $mux $procmux$145.
+    dead port 1/2 on $mux $procmux$150.
+Removed 9 multiplexer ports.
+<suppressed ~11 debug messages>
 
 3.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\changer\N=s32'00000000000000000000000000001000.
@@ -269,8 +276,8 @@ Removed 8 multiplexer ports.
   Optimizing cells in module $paramod\shifter\N=s32'00000000000000000000000000001000.
   Optimizing cells in module $paramod\subtract\N=s32'00000000000000000000000000001000.
   Optimizing cells in module \ALU_rtl.
-    New ctrl vector for $pmux cell $procmux$142: { $procmux$146_CMP $auto$opt_reduce.cc:134:opt_pmux$163 }
-    New ctrl vector for $pmux cell $procmux$152: { $auto$opt_reduce.cc:134:opt_pmux$165 $procmux$144_CMP $procmux$143_CMP }
+    New ctrl vector for $pmux cell $procmux$158: { $procmux$162_CMP $procmux$160_CMP $auto$opt_reduce.cc:134:opt_pmux$179 }
+    New ctrl vector for $pmux cell $procmux$168: { $auto$opt_reduce.cc:134:opt_pmux$181 $procmux$160_CMP $procmux$159_CMP }
   Optimizing cells in module \ALU_rtl.
 Performed a total of 2 changes.
 
@@ -290,8 +297,8 @@ Finding unused cells or wires in module $paramod\comparator\N=s32'00000000000000
 Finding unused cells or wires in module $paramod\shifter\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module $paramod\subtract\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module \ALU_rtl..
-Removed 0 unused cells and 18 unused wires.
-<suppressed ~2 debug messages>
+Removed 0 unused cells and 19 unused wires.
+<suppressed ~3 debug messages>
 
 3.6.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\changer\N=s32'00000000000000000000000000001000.
@@ -323,7 +330,7 @@ Running muxtree optimizer on module \ALU_rtl..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~10 debug messages>
+<suppressed ~11 debug messages>
 
 3.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\changer\N=s32'00000000000000000000000000001000.
@@ -420,7 +427,7 @@ Running muxtree optimizer on module \ALU_rtl..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~10 debug messages>
+<suppressed ~11 debug messages>
 
 3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\changer\N=s32'00000000000000000000000000001000.
@@ -457,23 +464,23 @@ Optimizing module ALU_rtl.
 3.8.9. Finished OPT passes. (There is nothing left to do.)
 
 3.9. Executing WREDUCE pass (reducing word size of cells).
-Removed top 28 bits (of 32) from port B of cell $paramod\changer\N=s32'00000000000000000000000000001000.$ge$changer.sv:17$79 ($ge).
-Removed top 31 bits (of 32) from port A of cell $paramod\changer\N=s32'00000000000000000000000000001000.$shl$changer.sv:22$81 ($shl).
-Removed top 24 bits (of 32) from port Y of cell $paramod\changer\N=s32'00000000000000000000000000001000.$xor$changer.sv:22$82 ($xor).
-Removed top 24 bits (of 32) from port B of cell $paramod\changer\N=s32'00000000000000000000000000001000.$xor$changer.sv:22$82 ($xor).
-Removed top 24 bits (of 32) from port Y of cell $paramod\changer\N=s32'00000000000000000000000000001000.$shl$changer.sv:22$81 ($shl).
-Removed top 24 bits (of 32) from wire $paramod\changer\N=s32'00000000000000000000000000001000.$shl$changer.sv:22$81_Y.
-Removed top 24 bits (of 32) from wire $paramod\changer\N=s32'00000000000000000000000000001000.$xor$changer.sv:22$82_Y.
-Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:72$28 ($not).
-Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:72$32 ($not).
-Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:72$36 ($not).
-Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:72$40 ($not).
-Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:72$44 ($not).
-Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:72$48 ($not).
-Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:72$52 ($not).
-Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:72$56 ($not).
-Removed top 30 bits (of 32) from port B of cell ALU_rtl.$eq$ALU.sv:79$61 ($eq).
-Removed top 1 bits (of 2) from port B of cell ALU_rtl.$procmux$145_CMP0 ($eq).
+Removed top 28 bits (of 32) from port B of cell $paramod\changer\N=s32'00000000000000000000000000001000.$ge$changer.sv:17$83 ($ge).
+Removed top 31 bits (of 32) from port A of cell $paramod\changer\N=s32'00000000000000000000000000001000.$shl$changer.sv:22$85 ($shl).
+Removed top 24 bits (of 32) from port Y of cell $paramod\changer\N=s32'00000000000000000000000000001000.$xor$changer.sv:22$86 ($xor).
+Removed top 24 bits (of 32) from port B of cell $paramod\changer\N=s32'00000000000000000000000000001000.$xor$changer.sv:22$86 ($xor).
+Removed top 24 bits (of 32) from port Y of cell $paramod\changer\N=s32'00000000000000000000000000001000.$shl$changer.sv:22$85 ($shl).
+Removed top 24 bits (of 32) from wire $paramod\changer\N=s32'00000000000000000000000000001000.$shl$changer.sv:22$85_Y.
+Removed top 24 bits (of 32) from wire $paramod\changer\N=s32'00000000000000000000000000001000.$xor$changer.sv:22$86_Y.
+Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:73$30 ($not).
+Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:73$34 ($not).
+Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:73$38 ($not).
+Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:73$42 ($not).
+Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:73$46 ($not).
+Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:73$50 ($not).
+Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:73$54 ($not).
+Removed top 31 bits (of 32) from port A of cell ALU_rtl.$not$ALU.sv:73$58 ($not).
+Removed top 30 bits (of 32) from port B of cell ALU_rtl.$eq$ALU.sv:80$63 ($eq).
+Removed top 1 bits (of 2) from port B of cell ALU_rtl.$procmux$161_CMP0 ($eq).
 
 3.10. Executing PEEPOPT pass (run peephole optimizers).
 
@@ -488,36 +495,36 @@ Removed 0 unused cells and 2 unused wires.
 
 3.12. Executing ALUMACC pass (create $alu and $macc cells).
 Extracting $alu and $macc cells in module $paramod\changer\N=s32'00000000000000000000000000001000:
-  creating $alu model for $ge$changer.sv:17$79 ($ge): new $alu
-  creating $alu cell for $ge$changer.sv:17$79: $auto$alumacc.cc:485:replace_alu$169
+  creating $alu model for $ge$changer.sv:17$83 ($ge): new $alu
+  creating $alu cell for $ge$changer.sv:17$83: $auto$alumacc.cc:485:replace_alu$185
   created 1 $alu and 0 $macc cells.
 Extracting $alu and $macc cells in module $paramod\comparator\N=s32'00000000000000000000000000001000:
-  creating $alu model for $ge$comparator.sv:21$71 ($ge): new $alu
-  creating $alu model for $le$comparator.sv:24$73 ($le): merged with $ge$comparator.sv:21$71.
-  creating $alu cell for $ge$comparator.sv:21$71, $le$comparator.sv:24$73: $auto$alumacc.cc:485:replace_alu$179
+  creating $alu model for $ge$comparator.sv:21$73 ($ge): new $alu
+  creating $alu model for $le$comparator.sv:24$75 ($le): merged with $ge$comparator.sv:21$73.
+  creating $alu cell for $ge$comparator.sv:21$73, $le$comparator.sv:24$75: $auto$alumacc.cc:485:replace_alu$195
   created 1 $alu and 0 $macc cells.
 Extracting $alu and $macc cells in module $paramod\shifter\N=s32'00000000000000000000000000001000:
   created 0 $alu and 0 $macc cells.
 Extracting $alu and $macc cells in module $paramod\subtract\N=s32'00000000000000000000000000001000:
-  creating $macc model for $sub$subtract.sv:10$63 ($sub).
-  creating $alu model for $macc $sub$subtract.sv:10$63.
-  creating $alu cell for $sub$subtract.sv:10$63: $auto$alumacc.cc:485:replace_alu$194
+  creating $macc model for $sub$subtract.sv:10$65 ($sub).
+  creating $alu model for $macc $sub$subtract.sv:10$65.
+  creating $alu cell for $sub$subtract.sv:10$65: $auto$alumacc.cc:485:replace_alu$210
   created 1 $alu and 0 $macc cells.
 Extracting $alu and $macc cells in module ALU_rtl:
-  creating $macc model for $add$ALU.sv:72$34 ($add).
-  creating $macc model for $add$ALU.sv:72$38 ($add).
-  creating $macc model for $add$ALU.sv:72$42 ($add).
-  creating $macc model for $add$ALU.sv:72$46 ($add).
-  creating $macc model for $add$ALU.sv:72$50 ($add).
-  creating $macc model for $add$ALU.sv:72$54 ($add).
-  creating $macc model for $add$ALU.sv:72$58 ($add).
-  merging $macc model for $add$ALU.sv:72$54 into $add$ALU.sv:72$58.
-  merging $macc model for $add$ALU.sv:72$50 into $add$ALU.sv:72$58.
-  merging $macc model for $add$ALU.sv:72$46 into $add$ALU.sv:72$58.
-  merging $macc model for $add$ALU.sv:72$42 into $add$ALU.sv:72$58.
-  merging $macc model for $add$ALU.sv:72$38 into $add$ALU.sv:72$58.
-  merging $macc model for $add$ALU.sv:72$34 into $add$ALU.sv:72$58.
-  creating $macc cell for $add$ALU.sv:72$58: $auto$alumacc.cc:365:replace_macc$197
+  creating $macc model for $add$ALU.sv:73$36 ($add).
+  creating $macc model for $add$ALU.sv:73$40 ($add).
+  creating $macc model for $add$ALU.sv:73$44 ($add).
+  creating $macc model for $add$ALU.sv:73$48 ($add).
+  creating $macc model for $add$ALU.sv:73$52 ($add).
+  creating $macc model for $add$ALU.sv:73$56 ($add).
+  creating $macc model for $add$ALU.sv:73$60 ($add).
+  merging $macc model for $add$ALU.sv:73$56 into $add$ALU.sv:73$60.
+  merging $macc model for $add$ALU.sv:73$52 into $add$ALU.sv:73$60.
+  merging $macc model for $add$ALU.sv:73$48 into $add$ALU.sv:73$60.
+  merging $macc model for $add$ALU.sv:73$44 into $add$ALU.sv:73$60.
+  merging $macc model for $add$ALU.sv:73$40 into $add$ALU.sv:73$60.
+  merging $macc model for $add$ALU.sv:73$36 into $add$ALU.sv:73$60.
+  creating $macc cell for $add$ALU.sv:73$60: $auto$alumacc.cc:365:replace_macc$213
   created 0 $alu and 1 $macc cells.
 
 3.13. Executing SHARE pass (SAT-based resource sharing).
@@ -560,7 +567,7 @@ Running muxtree optimizer on module \ALU_rtl..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~10 debug messages>
+<suppressed ~11 debug messages>
 
 3.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\changer\N=s32'00000000000000000000000000001000.
@@ -619,7 +626,7 @@ Running muxtree optimizer on module \ALU_rtl..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~10 debug messages>
+<suppressed ~11 debug messages>
 
 3.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\changer\N=s32'00000000000000000000000000001000.
@@ -705,7 +712,7 @@ Optimizing module $paramod\changer\N=s32'00000000000000000000000000001000.
 Optimizing module $paramod\comparator\N=s32'00000000000000000000000000001000.
 <suppressed ~3 debug messages>
 Optimizing module $paramod\shifter\N=s32'00000000000000000000000000001000.
-<suppressed ~6 debug messages>
+<suppressed ~7 debug messages>
 Optimizing module $paramod\subtract\N=s32'00000000000000000000000000001000.
 Optimizing module ALU_rtl.
 <suppressed ~101 debug messages>
@@ -726,7 +733,7 @@ Finding unused cells or wires in module $paramod\comparator\N=s32'00000000000000
 Finding unused cells or wires in module $paramod\shifter\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module $paramod\subtract\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module \ALU_rtl..
-Removed 2 unused cells and 47 unused wires.
+Removed 2 unused cells and 48 unused wires.
 <suppressed ~6 debug messages>
 
 3.17.5. Finished fast OPT passes.
@@ -771,7 +778,7 @@ Running muxtree optimizer on module \ALU_rtl..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~7 debug messages>
+<suppressed ~8 debug messages>
 
 3.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\changer\N=s32'00000000000000000000000000001000.
@@ -840,24 +847,24 @@ Generating RTLIL representation for module `\_90_lut'.
 Successfully finished Verilog frontend.
 
 3.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $and.
 Using extmapper simplemap for cells of type $not.
 Using extmapper simplemap for cells of type $logic_not.
 Using extmapper simplemap for cells of type $eq.
-Using extmapper simplemap for cells of type $and.
 Using extmapper maccmap for cells of type $macc.
-  add { 31'0000000000000000000000000000000 $add$ALU.sv:72$30_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$ALU.sv:72$57_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$ALU.sv:72$53_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$ALU.sv:72$49_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$ALU.sv:72$45_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$ALU.sv:72$41_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$ALU.sv:72$37_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$ALU.sv:72$33_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $add$ALU.sv:73$32_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$ALU.sv:73$59_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$ALU.sv:73$55_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$ALU.sv:73$51_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$ALU.sv:73$47_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$ALU.sv:73$43_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$ALU.sv:73$39_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$ALU.sv:73$35_Y [0] } (32 bits, unsigned)
   packed 3 (3) bits / 3 words into adder tree
 Using extmapper simplemap for cells of type $reduce_or.
 Using extmapper simplemap for cells of type $mux.
-Using template $paramod$645fe0cc96ae5edb83bff90cc2c78f4a20ca3e3c\_90_pmux for cells of type $pmux.
 Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using template $paramod$645fe0cc96ae5edb83bff90cc2c78f4a20ca3e3c\_90_pmux for cells of type $pmux.
 Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000001 for cells of type $fa.
 Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000010 for cells of type $fa.
 Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
@@ -868,16 +875,17 @@ Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000100000 for ce
 Using extmapper simplemap for cells of type $pos.
 Using template $paramod$4ccbe221165818e15f326ddee3d1183c7924e12f\_90_alu for cells of type $alu.
 Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000001001 for cells of type $lcu.
-Using template $paramod$constmap:f99840ec908483ed147148e5b457b3755f98764b$paramod$ccb11fc325c62cbff7f992cb27026a81e9f74166\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using template $paramod$constmap:5a364ddcb357ea92d2cbe6389550e659ac18a65b$paramod$ed1b2f8d7cf549c99cbac27e7274d42f4116c218\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using template $paramod$dbcdc7e8aa1a4080cea2deda6fdc8772064f4d90\_90_alu for cells of type $alu.
 Using extmapper simplemap for cells of type $reduce_and.
 Using extmapper simplemap for cells of type $logic_and.
-Using template $paramod$dbcdc7e8aa1a4080cea2deda6fdc8772064f4d90\_90_alu for cells of type $alu.
 Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000000111 for cells of type $lcu.
 Using extmapper simplemap for cells of type $logic_or.
 Using template $paramod$constmap:72cdabb1749dac72049399dad655ca81335c3226$paramod$c9b0e4287a2eb8d88b30f100e3158318a9c0abad\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
 Using template $paramod$4bdb94ac02745db6fc41e2e497d9b9793cd51dc6\_90_alu for cells of type $alu.
 No more expansions possible.
-<suppressed ~1234 debug messages>
+<suppressed ~1319 debug messages>
 
 3.21. Executing OPT pass (performing simple optimizations).
 
@@ -890,7 +898,7 @@ Optimizing module $paramod\shifter\N=s32'00000000000000000000000000001000.
 Optimizing module $paramod\subtract\N=s32'00000000000000000000000000001000.
 <suppressed ~18 debug messages>
 Optimizing module ALU_rtl.
-<suppressed ~418 debug messages>
+<suppressed ~420 debug messages>
 
 3.21.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `$paramod\changer\N=s32'00000000000000000000000000001000'.
@@ -900,8 +908,8 @@ Finding identical cells in module `$paramod\comparator\N=s32'0000000000000000000
 Finding identical cells in module `$paramod\shifter\N=s32'00000000000000000000000000001000'.
 Finding identical cells in module `$paramod\subtract\N=s32'00000000000000000000000000001000'.
 Finding identical cells in module `\ALU_rtl'.
-<suppressed ~18 debug messages>
-Removed a total of 13 cells.
+<suppressed ~12 debug messages>
+Removed a total of 11 cells.
 
 3.21.3. Executing OPT_DFF pass (perform DFF optimizations).
 
@@ -911,7 +919,7 @@ Finding unused cells or wires in module $paramod\comparator\N=s32'00000000000000
 Finding unused cells or wires in module $paramod\shifter\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module $paramod\subtract\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module \ALU_rtl..
-Removed 21 unused cells and 356 unused wires.
+Removed 21 unused cells and 367 unused wires.
 <suppressed ~26 debug messages>
 
 3.21.5. Finished fast OPT passes.
@@ -961,8 +969,8 @@ ABC: + map
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 3.22.2.2. Re-integrating ABC results.
-ABC RESULTS:              XNOR cells:        4
 ABC RESULTS:               NOT cells:        2
+ABC RESULTS:              XNOR cells:        4
 ABC RESULTS:              NAND cells:        2
 ABC RESULTS:            ANDNOT cells:       17
 ABC RESULTS:             ORNOT cells:        6
@@ -975,7 +983,7 @@ ABC RESULTS:          output signals:        1
 Removing temp directory.
 
 3.22.3. Extracting gate netlist of module `$paramod\shifter\N=s32'00000000000000000000000000001000' to `<abc-temp-dir>/input.blif'..
-Extracted 52 gates and 69 wires to a netlist network with 16 inputs and 8 outputs.
+Extracted 90 gates and 107 wires to a netlist network with 16 inputs and 9 outputs.
 
 3.22.3.1. Executing ABC.
 Running ABC command: "abc" -s -f <abc-temp-dir>/abc.script 2>&1
@@ -990,15 +998,14 @@ ABC: + map
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 3.22.3.2. Re-integrating ABC results.
-ABC RESULTS:               NOT cells:        2
-ABC RESULTS:               NOR cells:        1
-ABC RESULTS:             ORNOT cells:        7
-ABC RESULTS:               MUX cells:       17
-ABC RESULTS:                OR cells:       17
-ABC RESULTS:            ANDNOT cells:       10
-ABC RESULTS:        internal signals:       45
+ABC RESULTS:             ORNOT cells:        8
+ABC RESULTS:               MUX cells:       24
+ABC RESULTS:               NOT cells:        5
+ABC RESULTS:                OR cells:       36
+ABC RESULTS:            ANDNOT cells:       22
+ABC RESULTS:        internal signals:       82
 ABC RESULTS:           input signals:       16
-ABC RESULTS:          output signals:        8
+ABC RESULTS:          output signals:        9
 Removing temp directory.
 
 3.22.4. Extracting gate netlist of module `$paramod\subtract\N=s32'00000000000000000000000000001000' to `<abc-temp-dir>/input.blif'..
@@ -1029,7 +1036,7 @@ ABC RESULTS:          output signals:        9
 Removing temp directory.
 
 3.22.5. Extracting gate netlist of module `\ALU_rtl' to `<abc-temp-dir>/input.blif'..
-Extracted 89 gates and 120 wires to a netlist network with 30 inputs and 12 outputs.
+Extracted 92 gates and 124 wires to a netlist network with 31 inputs and 12 outputs.
 
 3.22.5.1. Executing ABC.
 Running ABC command: "abc" -s -f <abc-temp-dir>/abc.script 2>&1
@@ -1044,18 +1051,17 @@ ABC: + map
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 3.22.5.2. Re-integrating ABC results.
-ABC RESULTS:               MUX cells:        8
 ABC RESULTS:               XOR cells:        7
 ABC RESULTS:               NOT cells:       12
 ABC RESULTS:              XNOR cells:        3
 ABC RESULTS:                OR cells:       10
-ABC RESULTS:               NOR cells:        6
-ABC RESULTS:               AND cells:        1
+ABC RESULTS:               NOR cells:        7
+ABC RESULTS:               MUX cells:        9
 ABC RESULTS:              NAND cells:        2
 ABC RESULTS:             ORNOT cells:        6
-ABC RESULTS:            ANDNOT cells:       29
-ABC RESULTS:        internal signals:       78
-ABC RESULTS:           input signals:       30
+ABC RESULTS:            ANDNOT cells:       30
+ABC RESULTS:        internal signals:       81
+ABC RESULTS:           input signals:       31
 ABC RESULTS:          output signals:       12
 Removing temp directory.
 
@@ -1075,7 +1081,8 @@ Finding identical cells in module `$paramod\comparator\N=s32'0000000000000000000
 Finding identical cells in module `$paramod\shifter\N=s32'00000000000000000000000000001000'.
 Finding identical cells in module `$paramod\subtract\N=s32'00000000000000000000000000001000'.
 Finding identical cells in module `\ALU_rtl'.
-Removed a total of 0 cells.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
 
 3.23.3. Executing OPT_DFF pass (perform DFF optimizations).
 
@@ -1085,7 +1092,7 @@ Finding unused cells or wires in module $paramod\comparator\N=s32'00000000000000
 Finding unused cells or wires in module $paramod\shifter\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module $paramod\subtract\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module \ALU_rtl..
-Removed 0 unused cells and 250 unused wires.
+Removed 0 unused cells and 259 unused wires.
 <suppressed ~5 debug messages>
 
 3.23.5. Finished fast OPT passes.
@@ -1147,20 +1154,19 @@ Removed 0 unused modules.
 
 === $paramod\shifter\N=s32'00000000000000000000000000001000 ===
 
-   Number of wires:                 50
-   Number of wire bits:             71
-   Number of public wires:           4
-   Number of public wire bits:      25
+   Number of wires:                 91
+   Number of wire bits:            112
+   Number of public wires:           5
+   Number of public wire bits:      26
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 54
-     $_ANDNOT_                      10
-     $_MUX_                         17
-     $_NOR_                          1
-     $_NOT_                          2
-     $_ORNOT_                        7
-     $_OR_                          17
+   Number of cells:                 95
+     $_ANDNOT_                      22
+     $_MUX_                         24
+     $_NOT_                          5
+     $_ORNOT_                        8
+     $_OR_                          36
 
 === $paramod\subtract\N=s32'00000000000000000000000000001000 ===
 
@@ -1181,17 +1187,16 @@ Removed 0 unused modules.
 
 === ALU_rtl ===
 
-   Number of wires:                 88
-   Number of wire bits:            162
-   Number of public wires:          16
-   Number of public wire bits:      90
+   Number of wires:                 90
+   Number of wire bits:            164
+   Number of public wires:          17
+   Number of public wire bits:      91
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 88
-     $_ANDNOT_                      29
-     $_AND_                          1
-     $_MUX_                          8
+   Number of cells:                 89
+     $_ANDNOT_                      30
+     $_MUX_                          9
      $_NAND_                         2
      $_NOR_                          6
      $_NOT_                         12
@@ -1212,22 +1217,22 @@ Removed 0 unused modules.
      $paramod\shifter\N=s32'00000000000000000000000000001000      1
      $paramod\subtract\N=s32'00000000000000000000000000001000      1
 
-   Number of wires:                272
-   Number of wire bits:            423
-   Number of public wires:          31
-   Number of public wire bits:     182
+   Number of wires:                315
+   Number of wire bits:            466
+   Number of public wires:          33
+   Number of public wire bits:     184
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                280
-     $_ANDNOT_                      86
-     $_AND_                          2
-     $_MUX_                         27
+   Number of cells:                322
+     $_ANDNOT_                      99
+     $_AND_                          1
+     $_MUX_                         35
      $_NAND_                         4
-     $_NOR_                         14
-     $_NOT_                         18
-     $_ORNOT_                       30
-     $_OR_                          58
+     $_NOR_                         13
+     $_NOT_                         21
+     $_ORNOT_                       31
+     $_OR_                          77
      $_XNOR_                        11
      $_XOR_                         30
 
@@ -1311,7 +1316,7 @@ ABC RESULTS:          output signals:        1
 Removing temp directory.
 
 4.3. Extracting gate netlist of module `$paramod\shifter\N=s32'00000000000000000000000000001000' to `<abc-temp-dir>/input.blif'..
-Extracted 54 gates and 70 wires to a netlist network with 16 inputs and 8 outputs.
+Extracted 95 gates and 111 wires to a netlist network with 16 inputs and 9 outputs.
 
 4.3.1. Executing ABC.
 Running ABC command: "abc" -s -f <abc-temp-dir>/abc.script 2>&1
@@ -1336,12 +1341,12 @@ ABC: + &put
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 4.3.2. Re-integrating ABC results.
-ABC RESULTS:               NOT cells:        7
-ABC RESULTS:               AND cells:       42
-ABC RESULTS:                OR cells:       31
-ABC RESULTS:        internal signals:       46
+ABC RESULTS:               NOT cells:        8
+ABC RESULTS:                OR cells:       43
+ABC RESULTS:               AND cells:       49
+ABC RESULTS:        internal signals:       86
 ABC RESULTS:           input signals:       16
-ABC RESULTS:          output signals:        8
+ABC RESULTS:          output signals:        9
 Removing temp directory.
 
 4.4. Extracting gate netlist of module `$paramod\subtract\N=s32'00000000000000000000000000001000' to `<abc-temp-dir>/input.blif'..
@@ -1380,7 +1385,7 @@ ABC RESULTS:          output signals:        9
 Removing temp directory.
 
 4.5. Extracting gate netlist of module `\ALU_rtl' to `<abc-temp-dir>/input.blif'..
-Extracted 84 gates and 114 wires to a netlist network with 30 inputs and 12 outputs.
+Extracted 85 gates and 116 wires to a netlist network with 31 inputs and 12 outputs.
 
 4.5.1. Executing ABC.
 Running ABC command: "abc" -s -f <abc-temp-dir>/abc.script 2>&1
@@ -1405,12 +1410,12 @@ ABC: + &put
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 4.5.2. Re-integrating ABC results.
-ABC RESULTS:               XOR cells:       10
-ABC RESULTS:               NOT cells:        9
-ABC RESULTS:               AND cells:       39
-ABC RESULTS:                OR cells:       28
-ABC RESULTS:        internal signals:       72
-ABC RESULTS:           input signals:       30
+ABC RESULTS:               XOR cells:        9
+ABC RESULTS:               NOT cells:       10
+ABC RESULTS:               AND cells:       40
+ABC RESULTS:                OR cells:       29
+ABC RESULTS:        internal signals:       73
+ABC RESULTS:           input signals:       31
 ABC RESULTS:          output signals:       12
 Removing temp directory.
 
@@ -1420,7 +1425,7 @@ Finding unused cells or wires in module $paramod\comparator\N=s32'00000000000000
 Finding unused cells or wires in module $paramod\shifter\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module $paramod\subtract\N=s32'00000000000000000000000000001000..
 Finding unused cells or wires in module \ALU_rtl..
-Removed 0 unused cells and 374 unused wires.
+Removed 0 unused cells and 417 unused wires.
 <suppressed ~5 debug messages>
 
 6. Executing Verilog backend.
@@ -1471,19 +1476,19 @@ Dumping module `\ALU_rtl'.
 
 === $paramod\shifter\N=s32'00000000000000000000000000001000 ===
 
-   Number of wires:                 76
-   Number of wire bits:             97
-   Number of public wires:           4
-   Number of public wire bits:      25
+   Number of wires:                 96
+   Number of wire bits:            117
+   Number of public wires:           5
+   Number of public wire bits:      26
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 80
-     $_AND_                         42
-     $_NOT_                          7
-     $_OR_                          31
+   Number of cells:                100
+     $_AND_                         49
+     $_NOT_                          8
+     $_OR_                          43
 
-   Estimated number of transistors:        452
+   Estimated number of transistors:        568
 
 === $paramod\subtract\N=s32'00000000000000000000000000001000 ===
 
@@ -1504,24 +1509,24 @@ Dumping module `\ALU_rtl'.
 
 === ALU_rtl ===
 
-   Number of wires:                 90
-   Number of wire bits:            164
-   Number of public wires:          16
-   Number of public wire bits:      90
+   Number of wires:                 93
+   Number of wire bits:            167
+   Number of public wires:          17
+   Number of public wire bits:      91
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 90
-     $_AND_                         39
-     $_NOT_                          9
-     $_OR_                          28
-     $_XOR_                         10
+   Number of cells:                 92
+     $_AND_                         40
+     $_NOT_                         10
+     $_OR_                          29
+     $_XOR_                          9
      $paramod\changer\N=s32'00000000000000000000000000001000      1
      $paramod\comparator\N=s32'00000000000000000000000000001000      1
      $paramod\shifter\N=s32'00000000000000000000000000001000      1
      $paramod\subtract\N=s32'00000000000000000000000000001000      1
 
-   Estimated number of transistors:        540+
+   Estimated number of transistors:        542+
 
 === design hierarchy ===
 
@@ -1531,21 +1536,21 @@ Dumping module `\ALU_rtl'.
      $paramod\shifter\N=s32'00000000000000000000000000001000      1
      $paramod\subtract\N=s32'00000000000000000000000000001000      1
 
-   Number of wires:                369
-   Number of wire bits:            520
-   Number of public wires:          31
-   Number of public wire bits:     182
+   Number of wires:                392
+   Number of wire bits:            543
+   Number of public wires:          33
+   Number of public wire bits:     184
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                377
-     $_AND_                        155
-     $_NOT_                         58
-     $_OR_                         137
-     $_XOR_                         27
+   Number of cells:                399
+     $_AND_                        163
+     $_NOT_                         60
+     $_OR_                         150
+     $_XOR_                         26
 
-   Estimated number of transistors:       2192
+   Estimated number of transistors:       2310
 
-End of script. Logfile hash: 3ac49be0d1, CPU: user 0.48s system 0.02s, MEM: 29.57 MB peak
+End of script. Logfile hash: 1140e56e8a, CPU: user 0.42s system 0.01s, MEM: 29.85 MB peak
 Yosys 0.22 (git sha1 f109fa3d4c5, gcc 12.2.0 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -fPIC -Os)
-Time spent: 57% 2x abc (0 sec), 10% 25x opt_expr (0 sec), ...
+Time spent: 55% 2x abc (0 sec), 11% 25x opt_expr (0 sec), ...
