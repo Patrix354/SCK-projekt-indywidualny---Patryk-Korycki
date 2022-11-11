@@ -3,7 +3,13 @@
 `include "shifter.sv"
 `include "changer.sv"
 
-module ALU(i_a, i_b, i_op, o_out, o_ovf, o_ERR, o_even, o_single);
+`define ERROR_BIT 0
+`define EVEN_BIT 1
+`define OVF_BIT 2
+`define SINGLE_BIT 3
+
+
+module ALU(i_a, i_b, i_op, o_out, o_status);
 
     parameter BITS = 8;
     // Wejścia
@@ -12,10 +18,7 @@ module ALU(i_a, i_b, i_op, o_out, o_ovf, o_ERR, o_even, o_single);
     input logic [1:0] i_op;
 
     // Wyjścia
-    output logic o_ovf;
-    output logic o_ERR;
-    output logic o_even;
-    output logic o_single;
+    output logic [3:0] o_status;
     output logic [BITS-1:0] o_out;
 
     // Sygnały wewnętrzne
@@ -39,29 +42,23 @@ module ALU(i_a, i_b, i_op, o_out, o_ovf, o_ERR, o_even, o_single);
     always_comb begin
         case (i_op)
             2'b00:  begin   //Subtraktor
-                o_ERR = '0;
                 o_out = s_out_sub;
-                o_ovf = s_carry_sub;
+                o_status[`OVF_BIT] = s_carry_sub;
+                o_status[`ERROR_BIT] = '0;
             end
             2'b01:  begin   // Komparator
-                o_ERR = '0;
                 o_out = '0 | s_out_comp;
-                o_ovf = '0;
+                o_status = '0;
             end
             2'b10:  begin   // Shifter
-                o_ERR = s_ERR_shl;
                 o_out = s_out_shl;
-                o_ovf = s_ovf_shl;   
+                o_status[`OVF_BIT] = s_ovf_shl;
+                o_status[`ERROR_BIT] = s_ERR_shl;   
             end
             2'b11:  begin   // Zmieniacz bitu
-                o_ERR = s_ERR_chg;
                 o_out = s_out_chg;
-                o_ovf = '0;
-            end
-            default: begin
-                o_out = '0;
-                o_ERR = '0;
-                o_ovf = '0;
+                o_status[`ERROR_BIT] = s_ERR_chg;
+                o_status[`OVF_BIT] = '0;
             end
         endcase
 
@@ -72,16 +69,16 @@ module ALU(i_a, i_b, i_op, o_out, o_ovf, o_ERR, o_even, o_single);
         end
 
         if(!(zeros % 2)) begin
-            o_even = 1'b1;
-            o_single = 1'b0;
+            o_status[`EVEN_BIT] = '1;
+            o_status[`SINGLE_BIT] = '0;
         end
         else if(zeros == 1) begin
-            o_even = 1'b0;
-            o_single = 1'b1;
+            o_status[`EVEN_BIT] = '0;
+            o_status[`SINGLE_BIT] = '0;
         end
         else begin
-            o_even = 1'b0;
-            o_single = 1'b0;
+            o_status[`SINGLE_BIT] = '0;
+            o_status[`EVEN_BIT] = '0;
         end
     end
 

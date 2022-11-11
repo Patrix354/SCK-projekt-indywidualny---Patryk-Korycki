@@ -6,28 +6,19 @@ module testbench;
 
     logic [BITS-1:0] s_a;
     logic [BITS-1:0] s_b;
+    logic s_clk;
+    logic s_rst;
 
     logic [BITS-1:0] s_out_model;
     logic [BITS-1:0] s_out_synth;
 
-    logic s_ovf_out_synth;
-    logic s_ovf_out_model;
-
-    logic s_ERR_model;
-    logic s_ERR_synth;
-
-    logic s_even_model;
-    logic s_even_synth;
-
-    logic s_single_model;
-    logic s_single_synth;
+    logic [3:0] s_status_synth;
+    logic [3:0] s_status_model;
 
     logic [1:0] s_op;
 
-    ALU     #(.BITS(BITS))   alu_model    (.i_a(s_a), .i_b(s_b), .o_out(s_out_model), .o_ovf(s_ovf_out_model), .o_ERR(s_ERR_model), 
-                                            .i_op(s_op), .o_even(s_even_model), .o_single(s_single_model));    // model oryginalny
-    ALU_rtl               alu_synth    (.i_a(s_a), .i_b(s_b), .o_out(s_out_synth), .o_ovf(s_ovf_out_synth), .o_ERR(s_ERR_synth),
-                                        .i_op(s_op), .o_even(s_even_synth), .o_single(s_single_synth));    // model po syntezie
+    ALU     #(.BITS(BITS))   alu_model    (.i_a(s_a), .i_b(s_b), .i_op(s_op), .o_out(s_out_model), .o_status(s_status_model));    // model oryginalny
+    ALU_rtl               alu_synth    (.i_a(s_a), .i_b(s_b), .i_op(s_op), .o_out(s_out_synth), .o_status(s_status_synth));    // model po syntezie
 
     initial begin
             $dumpfile("signals.vcd");
