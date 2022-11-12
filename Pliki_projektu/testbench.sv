@@ -23,7 +23,7 @@ module testbench;
     initial begin 
         s_clk = '0;
         forever begin
-            #1 s_clk = ~s_clk;
+            #0.5 s_clk = ~s_clk;
         end 
     end
 

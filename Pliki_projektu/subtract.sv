@@ -21,7 +21,7 @@ module subtract(i_a, i_b, i_clk, i_rst, o_out, o_carry);
 
     always_comb begin
         if( !(`ZNAK_A ^ `ZNAK_B) ) begin
-            if(`MODUL_A > `MODUL_B) begin
+            if(`MODUL_A >= `MODUL_B) begin
                 {s_carry, s_out} = `MODUL_A - `MODUL_B;
                 s_sign = `ZNAK_A;
             end
