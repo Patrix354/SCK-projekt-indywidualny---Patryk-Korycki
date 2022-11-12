@@ -4,11 +4,14 @@
 `define MODUL_A i_a[N-2:0]
 `define MODUL_B i_b[N-2:0]
 
-module comparator(i_a, i_b, o_out);
+module comparator(i_a, i_b, i_clk, i_rst, o_out);
 
     parameter N = 8;
     input logic [N-1:0] i_a;
     input logic [N-1:0] i_b;
+    input logic i_clk;
+    input logic i_rst;
+
     output logic o_out;
 
     always_comb begin

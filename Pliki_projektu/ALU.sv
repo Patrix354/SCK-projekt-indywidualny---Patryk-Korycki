@@ -9,13 +9,15 @@
 `define SINGLE_BIT 3
 
 
-module ALU(i_a, i_b, i_op, o_out, o_status);
+module ALU(i_a, i_b, i_op, i_clk, i_rst, o_out, o_status);
 
     parameter BITS = 8;
     // Wejścia
     input logic [BITS-1:0] i_a;
     input logic [BITS-1:0] i_b;
     input logic [1:0] i_op;
+    input logic i_clk;
+    input logic i_rst;
 
     // Wyjścia
     output logic [3:0] o_status;
@@ -34,51 +36,57 @@ module ALU(i_a, i_b, i_op, o_out, o_status);
     // Zmienne
     int zeros;
     
-    subtract     #(.N(BITS))   sub    (.i_a(i_a), .i_b(i_b), .o_out(s_out_sub), .o_carry(s_carry_sub));
-    comparator     #(.N(BITS))   comp    (.i_a(i_a), .i_b(i_b), .o_out(s_out_comp));
-    shifter         #(.N(BITS))  shl      (.i_a(i_a), .i_b(i_b), .o_out(s_out_shl), .o_ERR(s_ERR_shl), .o_ovf(s_ovf_shl));
-    changer         #(.N(BITS))  chg      (.i_a(i_a), .i_b(i_b), .o_out(s_out_chg), .o_ERR(s_ERR_chg));
+    subtract     #(.N(BITS))   sub    (.i_a(i_a), .i_b(i_b), .i_clk(i_clk), .i_rst(i_rst), .o_out(s_out_sub), .o_carry(s_carry_sub));
+    comparator     #(.N(BITS))   comp    (.i_a(i_a), .i_b(i_b), .i_clk(i_clk), .i_rst(i_rst), .o_out(s_out_comp));
+    shifter         #(.N(BITS))  shl      (.i_a(i_a), .i_b(i_b), .i_clk(i_clk), .i_rst(i_rst), .o_out(s_out_shl), .o_ERR(s_ERR_shl), .o_ovf(s_ovf_shl));
+    changer         #(.N(BITS))  chg      (.i_a(i_a), .i_b(i_b), .i_clk(i_clk), .i_rst(i_rst), .o_out(s_out_chg), .o_ERR(s_ERR_chg));
 
-    always_comb begin
-        case (i_op)
-            2'b00:  begin   //Subtraktor
-                o_out = s_out_sub;
-                o_status[`OVF_BIT] = s_carry_sub;
-                o_status[`ERROR_BIT] = '0;
-            end
-            2'b01:  begin   // Komparator
-                o_out = '0 | s_out_comp;
-                o_status = '0;
-            end
-            2'b10:  begin   // Shifter
-                o_out = s_out_shl;
-                o_status[`OVF_BIT] = s_ovf_shl;
-                o_status[`ERROR_BIT] = s_ERR_shl;   
-            end
-            2'b11:  begin   // Zmieniacz bitu
-                o_out = s_out_chg;
-                o_status[`ERROR_BIT] = s_ERR_chg;
-                o_status[`OVF_BIT] = '0;
-            end
-        endcase
-
-        zeros = 0;
-
-        for(int i = 0; i < BITS; i = i + 1) begin
-            zeros = zeros + (1'b1 & ~o_out[i]);
-        end
-
-        if(!(zeros % 2)) begin
-            o_status[`EVEN_BIT] = '1;
-            o_status[`SINGLE_BIT] = '0;
-        end
-        else if(zeros == 1) begin
-            o_status[`EVEN_BIT] = '0;
-            o_status[`SINGLE_BIT] = '0;
+    always_ff @ (posedge i_clk) begin
+        if(!i_rst) begin
+            o_out <= '0;
+            o_status <= '0;
         end
         else begin
-            o_status[`SINGLE_BIT] = '0;
-            o_status[`EVEN_BIT] = '0;
+            case (i_op)
+                2'b00:  begin   //Subtraktor
+                    o_out = s_out_sub;
+                    o_status[`OVF_BIT] = s_carry_sub;
+                    o_status[`ERROR_BIT] = '0;
+                end
+                2'b01:  begin   // Komparator
+                    o_out = '0 | s_out_comp;
+                    o_status = '0;
+                end
+                2'b10:  begin   // Shifter
+                    o_out = s_out_shl;
+                    o_status[`OVF_BIT] = s_ovf_shl;
+                    o_status[`ERROR_BIT] = s_ERR_shl;   
+                end
+                2'b11:  begin   // Zmieniacz bitu
+                    o_out = s_out_chg;
+                    o_status[`ERROR_BIT] = s_ERR_chg;
+                    o_status[`OVF_BIT] = '0;
+                end
+            endcase
+
+            zeros = 0;
+
+            for(int i = 0; i < BITS; i = i + 1) begin
+                zeros = zeros + (1'b1 & ~o_out[i]);
+            end
+
+            if(!(zeros % 2)) begin
+                o_status[`EVEN_BIT] = '1;
+                o_status[`SINGLE_BIT] = '0;
+            end
+            else if(zeros == 1) begin
+                o_status[`EVEN_BIT] = '0;
+                o_status[`SINGLE_BIT] = '0;
+            end
+            else begin
+                o_status[`SINGLE_BIT] = '0;
+                o_status[`EVEN_BIT] = '0;
+            end
         end
     end
 
