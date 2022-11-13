@@ -4,13 +4,12 @@
 `define MODUL_A i_a[N-2:0]
 `define MODUL_B i_b[N-2:0]
 
-module shifter(i_a, i_b, i_clk, i_rst, o_out, o_ERR, o_ovf);
+module shifter(i_a, i_b, o_out, o_ERR, o_ovf);
 
     parameter N = 8;
     input logic [N-1:0] i_a;
     input logic [N-1:0] i_b;
-    input logic i_clk;
-    input logic i_rst;
+    
     output logic [N-1:0] o_out;
     output logic o_ERR;
     output logic o_ovf;

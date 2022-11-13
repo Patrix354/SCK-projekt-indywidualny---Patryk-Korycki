@@ -1,5 +1,4 @@
 `timescale 1ns/1ps     
-`include "ALU.sv"
 
 module testbench;
     parameter BITS = 8;
