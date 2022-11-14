@@ -1,7 +1,4 @@
-EXAMPLE     = ALU
-MODEL_FILES = ${EXAMPLE}.sv
-RTL_FILES   = ${EXAMPLE}_rtl.sv
-TB_FILES    = testbench.sv
+PROJ_NAME     = ALU
 
 rtl: 
     # Uruchomienie syntezy yosys
@@ -9,14 +6,14 @@ rtl:
 
 sim: compile
     # Wykonanie skompilowanego programu symulacji
-	./${EXAMPLE}.iveri.run
+	./${PROJ_NAME}.iveri.run
 
 compile: clear
     # Kompilacja modulow verilog do programu wykonywalnego
 	iverilog -g2005-sv                               \
-	 ${RTL_FILES} ${MODEL_FILES} ${TB_FILES}    \
-		-o ${EXAMPLE}.iveri.run                  \
-		    |& tee ${EXAMPLE}.iveri.log
+	 *.sv    \
+		-o ${PROJ_NAME}.iveri.run                  \
+		    |& tee ${PROJ_NAME}.iveri.log
 
 waves:
     # Uruchomienie przegladarki przebiegow GTKWave
@@ -24,5 +21,5 @@ waves:
 	
 clear:
     # Usuwanie wyniku kompilacji Icarus Verilog
-	if [ -f ${EXAMPLE}.iveri.run ] ; \
-	    then rm ${EXAMPLE}.iveri.run ; fi
+	if [ -f ${PROJ_NAME}.iveri.run ] ; \
+	    then rm ${PROJ_NAME}.iveri.run ; fi

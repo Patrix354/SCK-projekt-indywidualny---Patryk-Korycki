@@ -1,12 +1,4 @@
-`include "subtract.sv"
-`include "comparator.sv"
-`include "shifter.sv"
-`include "changer.sv"
-
-`define ERROR_BIT 0
-`define EVEN_BIT 1
-`define OVF_BIT 2
-`define SINGLE_BIT 3
+`include "macros.hv"
 
 module ALU(i_a, i_b, i_op, i_clk, i_rst, o_out, o_status);
 

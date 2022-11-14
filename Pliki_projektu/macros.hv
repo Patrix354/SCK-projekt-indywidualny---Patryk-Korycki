@@ -1,0 +1,16 @@
+`ifndef _MACROS_H_
+
+`define _MACROS_H_
+
+`define ZNAK_A i_a[N-1]
+`define ZNAK_B i_b[N-1]
+
+`define MODUL_A i_a[N-2:0]
+`define MODUL_B i_b[N-2:0]
+
+`define ERROR_BIT 0
+`define EVEN_BIT 1
+`define OVF_BIT 2
+`define SINGLE_BIT 3
+
+`endif

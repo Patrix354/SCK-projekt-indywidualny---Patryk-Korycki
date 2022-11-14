@@ -1,8 +1,4 @@
-`define ZNAK_A i_a[N-1]
-`define ZNAK_B i_b[N-1]
-
-`define MODUL_A i_a[N-2:0]
-`define MODUL_B i_b[N-2:0]
+`include "macros.hv"
 
 module changer(i_a, i_b, o_out, o_ERR);
 

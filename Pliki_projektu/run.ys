@@ -1,6 +1,10 @@
 # Wczytanie pliku modelu
     read_verilog -sv ALU.sv
-
+    read_verilog -sv shifter.sv
+    read_verilog -sv changer.sv
+    read_verilog -sv subtract.sv
+    read_verilog -sv comparator.sv
+    
 # Utworzenie kopi modulu z inna nazwa
     copy ALU ALU_rtl
 
