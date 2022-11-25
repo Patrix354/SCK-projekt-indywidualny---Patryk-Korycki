@@ -1701,6 +1701,6 @@ Dumping module `\exe_unit_w6_rtl'.
 
    Estimated number of transistors:       2874+
 
-End of script. Logfile hash: d91f811789, CPU: user 0.59s system 0.01s, MEM: 30.66 MB peak
+End of script. Logfile hash: d91f811789, CPU: user 0.59s system 0.02s, MEM: 30.73 MB peak
 Yosys 0.22 (git sha1 f109fa3d4c5, gcc 12.2.0 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -fPIC -Os)
-Time spent: 56% 2x abc (0 sec), 11% 26x opt_expr (0 sec), ...
+Time spent: 53% 2x abc (0 sec), 11% 26x opt_expr (0 sec), ...
