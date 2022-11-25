@@ -1,4 +1,4 @@
-PROJ_NAME     = ALU
+PROJ_NAME     = exe_unit_w6
 
 rtl: 
     # Uruchomienie syntezy yosys

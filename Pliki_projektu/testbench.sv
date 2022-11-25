@@ -1,5 +1,7 @@
 `timescale 1ns/1ps     
 
+`define MINUS (1<<(BITS-1)) |
+
 module testbench;
     parameter BITS = 8;
 
@@ -16,8 +18,8 @@ module testbench;
 
     logic [1:0] s_op;
 
-    ALU     #(.BITS(BITS))   alu_model    (.i_a(s_a), .i_b(s_b), .i_op(s_op), .i_clk(s_clk), .i_rst(s_rst), .o_out(s_out_model), .o_status(s_status_model));    // model oryginalny
-    ALU_rtl               alu_synth    (.i_a(s_a), .i_b(s_b), .i_op(s_op), .i_clk(s_clk), .i_rst(s_rst), .o_out(s_out_synth), .o_status(s_status_synth));    // model po syntezie
+    exe_unit_w6     #(.BITS(BITS))   exe_unit_w6_model    (.i_a(s_a), .i_b(s_b), .i_op(s_op), .i_clk(s_clk), .i_rst(s_rst), .o_out(s_out_model), .o_status(s_status_model));    // model oryginalny
+    exe_unit_w6_rtl               exe_unit_w6_synth    (.i_a(s_a), .i_b(s_b), .i_op(s_op), .i_clk(s_clk), .i_rst(s_rst), .o_out(s_out_synth), .o_status(s_status_synth));    // model po syntezie
 
     initial begin 
         s_clk = '0;
@@ -32,62 +34,55 @@ module testbench;
 
             $display("start");
             s_rst = '1;
-            s_op = 2'b00;   //Subtraktor  
-            s_a = 8'b11010010; //-82
-            s_b = 8'b11010101;  //-85
-            #5
-            s_a = 8'b10101001; //-41
-            s_b = 8'b10011010;  //-26
-            #5
-            s_a = 8'b00000111;  //7
-            s_b = 8'b01000000;  //64
-            #5
-            s_a = 8'b01101111;  //111
-            s_b = 8'b00011000;  //24
-            #5
-            s_a = 8'b01101111;  //111
-            s_b = 8'b00011000;  //24
-
-        #5
-            s_op = 2'b01;   // Komparator
-        
-        #5
-            s_op = 2'b10;  // Shifter      
-            s_a = 8'b10000010;
+//////////////////////////////////////////////////////////
+            // s_op = 2'b00;   //Subtraktor 
+            // s_a = `MINUS 8'd127;  // -127 - 1 = 128 (przepełnienie)
+            // s_b = 8'd1;
+        // #2
+            // s_a = 8'd127;  // 127 - (-1) = 128 (przepełnienie)
+            // s_b = 8'd1;
+        // #2
+            // s_a = `MINUS 8'd120;  // -120 - 9 = -111 (flaga SINGLE)
+            // s_b = 8'd9;
+        // #2
+            // s_a = 8'd91;
+            // s_b = 8'd41;
+        // #2
+            // s_rst = '0;
+        // #2
+///////////////////////////////////////////////
+        //     s_op = 2'b01;   // Komparator
+        //     s_a = `MINUS 8'd50;
+        //     s_b = 8'd4;
+        // #2
+        //     s_a = 8'd90;
+        //     s_b = 8'd40;
+        // #2
+        //     s_rst = '0;
+        // #2
+////////////////////////////////////////////////
+            s_op = 2'b10;  // Shifter 
+             
+            s_a = 8'b11000001;  //Flaga ERR
+            s_b = 8'b10000001;
+        #2
+            s_a = 8'b00001001;  //Obl testowe
+            s_b = 8'b10000001;
+        #2
+            s_a = 8'b11111111;  // Przepełnienie + flaga single
+            s_b = 8'b00000001;
+        #2
+            s_a = 8'b00000110;  //Przepełnienie + zachowanie znaku
+            s_b = 8'b00000101;
+        #2
+            s_a = 8'b10000001;  // Zachowanie znaku (+ przepełnienie ?)
             s_b = 8'b00000010;
-            #5
-            s_a = 8'b00000011;
-            s_b = 8'b10000001;
-            #5
-            s_a = 8'b00000011;
-            s_b = 8'b00000011;
-            #5
-            s_a = 8'b01000011;
-            s_b = 8'b00000100;
-            #5
-            s_a = 8'b11000000;
-            s_b = 8'b00000001;
-        
-        #5
-            s_op = 2'b11;   // Zmieniacz bitu
-
-            s_a = 8'b10101010;
-            s_b = 8'b10000001;
-            #5
-            s_a = 8'b10101010;
-            s_b = 8'b00000001;
-            #5
+        #2
             s_rst = '0;
-            s_a = 8'b10101010;
-            s_b = 8'b00000111;
-            #5
-            s_a = 8'b10101010;
-            s_b = 8'b00000011;
-            #5
-            s_a = 8'b11111111;
-            s_b = 8'b00000001;
-        
-        #5
+        #2
+/////////////////////////////////////////////
+        //     s_op = 2'b11;   // Zmieniacz bitu
+        // #2
             $display("Done");
             $finish;
         end

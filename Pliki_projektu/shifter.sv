@@ -22,7 +22,7 @@ module shifter(i_a, i_b, o_out, o_ERR, o_ovf);
         else begin
             o_ERR = 1'b0;
             s_out = (`MODUL_A << `MODUL_B);
-            o_out = (`ZNAK_A << N-1) | s_out[N-1:0];
+            o_out = (`ZNAK_A << N-1) | s_out[N-2:0];
 
             if(s_out[2*N-1:N-1])  begin
                 o_ovf = '1;

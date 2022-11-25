@@ -1,6 +1,6 @@
 `include "macros.hv"
 
-module ALU(i_a, i_b, i_op, i_clk, i_rst, o_out, o_status);
+module exe_unit_w6(i_a, i_b, i_op, i_clk, i_rst, o_out, o_status);
 
     parameter BITS = 8;
     // Wejścia
