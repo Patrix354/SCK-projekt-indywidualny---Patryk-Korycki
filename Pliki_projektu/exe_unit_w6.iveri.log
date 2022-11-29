@@ -1,7 +1,7 @@
-subtract.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
-subtract.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
-subtract.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
-subtract.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+subtractor.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+subtractor.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+subtractor.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+subtractor.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
 comparator.sv:11: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
 comparator.sv:11: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
 comparator.sv:11: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
@@ -12,5 +12,5 @@ shifter.sv:15: sorry: constant selects in always_* processes are not currently s
 shifter.sv:15: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
 shifter.sv:15: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
 shifter.sv:15: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
-changer.sv:12: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
-changer.sv:12: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+bit_changer.sv:12: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+bit_changer.sv:12: sorry: constant selects in always_* processes are not currently supported (all bits will be included).

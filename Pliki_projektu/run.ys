@@ -1,8 +1,8 @@
 # Wczytanie pliku modelu
     read_verilog -sv exe_unit_w6.sv
     read_verilog -sv shifter.sv
-    read_verilog -sv changer.sv
-    read_verilog -sv subtract.sv
+    read_verilog -sv bit_changer.sv
+    read_verilog -sv subtractor.sv
     read_verilog -sv comparator.sv
     
 # Utworzenie kopi modulu z inna nazwa

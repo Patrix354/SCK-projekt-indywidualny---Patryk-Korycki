@@ -31,10 +31,10 @@ module exe_unit_w6(i_a, i_b, i_op, i_clk, i_rst, o_out, o_status);
     
     int zeros;
 
-    subtract     #(.N(BITS))   sub    (.i_a(s_a), .i_b(s_b), .o_out(s_out_sub), .o_carry(s_carry_sub));
+    subtractor     #(.N(BITS))   sub    (.i_a(s_a), .i_b(s_b), .o_out(s_out_sub), .o_carry(s_carry_sub));
     comparator     #(.N(BITS))   comp    (.i_a(s_a), .i_b(s_b), .o_out(s_out_comp));
     shifter         #(.N(BITS))  shl      (.i_a(s_a), .i_b(s_b), .o_out(s_out_shl), .o_ERR(s_ERR_shl), .o_ovf(s_ovf_shl));
-    changer         #(.N(BITS))  chg      (.i_a(s_a), .i_b(s_b), .o_out(s_out_chg), .o_ERR(s_ERR_chg));
+    bit_changer         #(.N(BITS))  chg      (.i_a(s_a), .i_b(s_b), .o_out(s_out_chg), .o_ERR(s_ERR_chg));
 
     always_ff @ (posedge i_clk) begin
         if(!i_rst) begin

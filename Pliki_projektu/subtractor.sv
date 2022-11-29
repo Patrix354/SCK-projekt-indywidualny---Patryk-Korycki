@@ -1,6 +1,6 @@
 `include "macros.hv"
 
-module subtract(i_a, i_b, o_out, o_carry);
+module subtractor(i_a, i_b, o_out, o_carry);
 
     parameter N = 8;
     input logic [N-1:0] i_a;
@@ -14,7 +14,7 @@ module subtract(i_a, i_b, o_out, o_carry);
     logic s_sign;
 
     always_comb begin
-        if( !(`ZNAK_A ^ `ZNAK_B) ) begin
+        if( !(`ZNAK_A ^ `ZNAK_B) ) begin    // Jeśli znaki A i B są takie same
             if(`MODUL_A >= `MODUL_B) begin
                 {s_carry, s_out} = `MODUL_A - `MODUL_B;
                 s_sign = `ZNAK_A;
@@ -24,11 +24,11 @@ module subtract(i_a, i_b, o_out, o_carry);
                 s_sign = ~`ZNAK_A;
             end
         end
-        else if(!`ZNAK_A && `ZNAK_B) begin 
+        else if(!`ZNAK_A && `ZNAK_B) begin  // Jeśli znak A jest + i znak B jest -
             {s_carry, s_out} = `MODUL_A + `MODUL_B;
             s_sign = '0;
         end
-        else if(`ZNAK_A && !`ZNAK_B) begin 
+        else if(`ZNAK_A && !`ZNAK_B) begin //jEŚ
             {s_carry, s_out} = `MODUL_A + `MODUL_B;
             s_sign = '1;
         end
