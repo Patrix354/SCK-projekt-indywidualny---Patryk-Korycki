@@ -4,7 +4,7 @@
 # Wczytanie pliku modelu
     read_verilog -sv ../MODEL/exe_unit_w6.sv
     read_verilog -sv ../MODEL/shifter.sv
-    read_verilog -sv ../MODEL/bit_changer.sv
+    read_verilog -sv ../MODEL/changer.sv
     read_verilog -sv ../MODEL/subtractor.sv
     read_verilog -sv ../MODEL/comparator.sv
     

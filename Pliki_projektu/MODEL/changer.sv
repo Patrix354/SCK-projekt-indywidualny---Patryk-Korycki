@@ -1,6 +1,6 @@
 `include "../INCLUDE/macros.hv"
 
-module bit_changer(in_a, in_b, o_out, o_ERR);
+module changer(in_a, in_b, o_out, o_ERR);
 
     parameter N = 8;
     input logic [N-1:0] in_a;

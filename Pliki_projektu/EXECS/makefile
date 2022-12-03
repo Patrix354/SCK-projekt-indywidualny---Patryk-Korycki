@@ -11,10 +11,10 @@ sim: compile
 compile: clear
     # Kompilacja modulow verilog do programu wykonywalnego
 	iverilog -g2005-sv                               \
-	 ../MODEL/*.sv ../RTL/*.sv   \
+	 ../MODEL/*.sv ../RTL/*.sv ../TESTBENCH/testbench.sv   \
 	 -I ../INCLUDE 		\
 		-o ${PROJ_NAME}.vvp                  \
-		    | tee LOGS/${PROJ_NAME}.log
+		    | tee ../LOGS/compile.log
 
 waves:
     # Uruchomienie przegladarki przebiegow GTKWave

@@ -1,21 +1,20 @@
 \documentclass[12pt]{article}
 
-\usepackage{graphicx}
-\usepackage{indentfirst}
-\usepackage{tabularx}
-\usepackage{caption}
-\usepackage{subfigure}
-\usepackage{fancyvrb}
-\usepackage{listings}
-\usepackage[polish, english]{babel}
-\usepackage[a4paper, total={16cm, 25cm}]{geometry}
-\usepackage[T1]{fontenc}
+\usepackage{graphicx}	% Zdjęcia
+\usepackage{indentfirst}	% Wcięcia
+\usepackage{tabularx}	% Fancy Tabelki
+\usepackage{caption}	% Napisy pod tabelkami
+\usepackage{wrapfig}	% Rzeczy z owijaniem tekstem
+\usepackage[polish, english]{babel}		% Polska czcionka
+\usepackage[a4paper, total={16cm, 25cm}]{geometry}	% Format Kartki
+\usepackage[T1]{fontenc}	% Też obsługa polskiego
 
-\usepackage{float}
-
+\usepackage{float}	%fragmenty kodu
 \floatstyle{ruled}
 \newfloat{program}{thp}{lop}
 \floatname{program}{Kod}
+
+\usepackage{dirtree} % Drzewko katalogów
 
 %opening
 \title{\textbf{Specyfikacja modułu exe\_unit\_w6}}
@@ -24,18 +23,18 @@
 \begin{document}
 	\selectlanguage{polish}{\maketitle}
 	
-	\label{sec:hello}
 	\begin{figure}[!h]
 		\begin{center}
 			\vspace{-20pt}
 			\includegraphics[width=\textwidth]{Obrazki/Schemat_blokowy.png}
 			\caption*{Schemat blokowy jednostki \textbf{exe\_unit\_w6}}
-		\end{center}
+				\label{figure:schematic}
+	\end{center}
 	\end{figure}
 	
 	
 	\section*{Opis jednostki}
-	Zadanie polegało na implementacji modułu \textbf{exe\_unit\_w6}. Zadaniem układu jest wykonywanie kilku zdefiniowanych operacji matematycznych i logicznych. 
+	Zadanie polegało na implementacji modułu \textbf{exe\_unit\_w6}. Zadaniem układu jest wykonywanie kilku zdefiniowanych operacji matematycznych i logicznych w systemie liczb Znak-Moduł
 	
 	\subsection*{Wejścia}
 	Działania są wykonywane na dwóch n-bitowych liczbach A i B (wejścia \textbf{in\_a} i \textbf{in\_b}) podanych na wejście. Wyboru operacji dokonuje się za pomocą 2-bitowego wejścia \textbf{in\_op}. Dodatkowo układ jest wyposażony w wejście zegarowe wyzwalane zboczem narastającym \textbf{CLK} i resetu synchronicznego \textbf{RST}. Stan niski na wejściu reset skutkuje przywróceniem stanu układu do stanu początkowego, czyli ustawienia operacji odejmowania dla obydwu wejść wynoszących zero. Pełna lista wejść ukłdu jest przedstawiona w Tabeli \ref{table:inputs}. Poszczególne operacje wraz z wartościami wejścia \textbf{i\_op} zostały wymienione w Tabeli \ref{table:inop_values}.  
@@ -123,7 +122,7 @@ W kodzie \ref{code:instantions} pokazano ostateczne zainstancjonowanie jednostki
 	\label{code:instantions}
 \end{program}
 
-	
+	\vspace{-20pt}
 	\section*{Opis Podmodułów}
 	
 	Jednostka składa się z modułu sterującego i 4 modułów wykonawczych:
@@ -138,7 +137,7 @@ W kodzie \ref{code:instantions} pokazano ostateczne zainstancjonowanie jednostki
 	Każdy z modułów wykonawczych odpowiada za daną operację. Z podmodułów wychodzą sygnały zawierające wynik operacji i ewentualne flagi informacyjne. W module sterującym wchodzą one do multipleksera, który podaje na wyjście wynik wybranych flag i operacji.
 	
 	\section*{Synteza logiczna}
-	Synteza została przeprowadzona w programie \textbf{yosys 0.22}. Niestety napotykano problemy podczas użytkowania programu w wersji 0.9. prawdopodobnie było to spowodowane błędami we wczesnej wersji oprogramowania do syntezy.
+	Synteza została przeprowadzona w programie \textbf{yosys 0.22}. Niestety napotykano problemy podczas użytkowania programu w wersji 0.9. Prawdopodobnie było to spowodowane błędami we wczesnej wersji oprogramowania do syntezy.
 	\subsection*{Raport z syntezy}
 	Pełny raport z syntezy znajduje się w pliku \textbf{Pliki\_projektu/synth.log}. Poniżej znajduje się sumaryczne podsumowanie syntezy w postaci wyliczenia ilości użytych bramek i oszacowanie ilości potrzebnych tranzystorów do budowy układu. 
 	
@@ -147,7 +146,7 @@ W kodzie \ref{code:instantions} pokazano ostateczne zainstancjonowanie jednostki
 === design hierarchy ===
 
 exe_unit_w6_rtl                   1
-$paramod\bit_changer\N=s32'00000000000000000000000000001000      1
+$paramod\changer\N=s32'00000000000000000000000000001000      1
 $paramod\comparator\N=s32'00000000000000000000000000001000      1
 $paramod\shifter\N=s32'00000000000000000000000000001000      1
 $paramod\subtractor\N=s32'00000000000000000000000000001000      1
@@ -169,21 +168,53 @@ $_XOR_                         23
 Estimated number of transistors:       2666+
 		\end{verbatim}
 		\caption*{Wyliczenie ilości użytych bramek i oszacowanie ilości tranzystorów użytych do budowy jednostki}
-		\label{output:instantions}
+		\label{code:output}
 	\end{program}
 	
 	\section*{Symulacja i testy}
 	
-	\begin{figure}[!h]
-	\begin{center}
-		\vspace{-20pt}
-		\includegraphics[width=1.1\textwidth]{Obrazki/Testy_chg_lnk.png}
-		\caption*{Testy testów \textbf{exe\_unit\_w6}}
-	\end{center}
-\end{figure}
+	
+\section*{Struktura plików}
+	Wszystkie pliki modelu i syntezy są umieszczone w katalogu \textbf{Pliki\_projektu}. Wewnątrz katalogu utworzono podkatalogi zgodnie z przeznaczeniem plików w nich przechowywanych:
+	
+\begin{itemize}
+\item \textbf{LOGS} - Raport z syntezy i wyjście ewentualnych błędów z kompilatora. 
+\item \textbf{EXECS} - Pliki odpowiedzialne za wykonanie syntezy, zarządzaniem procesem kompilacji, plik wynikowy do symulacji i plik z zapisanymi sygnałami wewnętrznymi z modułu testowego.
+\item \textbf{INCLUDE} - Plik nagłówkowy zawierający kilka makr usprawniających pracę.
+\item \textbf{MODEL} - Pliki z kodem modelu przed syntezą logiczną.
+\item \textbf{TESTBENCH} -  Moduł testowy, wykorzystywany w symulacji.
+\item \textbf{RTL} - Plik z kodem jednostki po syntezie logicznej.	
+\end{itemize}
 
-	
-	
-	\section*{Struktura plików}
-	Wszystkie pliki modelu i syntezy są umieszczone w katalogu \textbf{Pliki\_projektu}. Wewnątrz katalogu znajdują się logi  
+\begin{wrapfigure}{l}{0.3\textwidth}
+	\dirtree{%
+		.1 .
+		.1 LOGS.
+		.2 synth.log.
+		.2 compile.log.
+		.1 EXECS.
+		.2 run.ys.
+		.2 makefile.
+		.2 exe\_unit\_w6.vvp.
+		.2 signals.vcd.
+		.1 INCLUDE.
+		.2 macros.hv.
+		.1 TESTBENCH.
+		.2 testbench.sv.
+		.1 MODEL.
+		.2 exe\_unit\_w6.sv.
+		.2 shifter.sv.
+		.2 comparator.sv.
+		.2 subtractor.sv.
+		.2 changer.sv.
+		.1 RTL.
+		.2 exe\_unit\_w6\_rtl.sv.
+	} 	
+\caption*{Struktura katalogów projektu}
+\label{figure:catalogues}
+\end{wrapfigure}
+
+Wszystkie niezbędne pliki \textbf{.sv} znadują się w katalogach \textbf{MODEL}, \textbf{TESTBENCH} i \textbf{RTL}. Pliki modelu zostały nazwane tak samo jak moduły w nich przechowywane.
+	 
+
 \end{document}
