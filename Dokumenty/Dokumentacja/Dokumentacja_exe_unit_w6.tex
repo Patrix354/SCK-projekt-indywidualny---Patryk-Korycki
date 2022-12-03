@@ -28,7 +28,7 @@
 	\begin{figure}[!h]
 		\begin{center}
 			\vspace{-20pt}
-			\includegraphics[width=\textwidth]{Schemat_blokowy.png}
+			\includegraphics[width=\textwidth]{Obrazki/Schemat_blokowy.png}
 			\caption*{Schemat blokowy jednostki \textbf{exe\_unit\_w6}}
 		\end{center}
 	\end{figure}
@@ -138,10 +138,52 @@ W kodzie \ref{code:instantions} pokazano ostateczne zainstancjonowanie jednostki
 	Każdy z modułów wykonawczych odpowiada za daną operację. Z podmodułów wychodzą sygnały zawierające wynik operacji i ewentualne flagi informacyjne. W module sterującym wchodzą one do multipleksera, który podaje na wyjście wynik wybranych flag i operacji.
 	
 	\section*{Synteza logiczna}
-	
+	Synteza została przeprowadzona w programie \textbf{yosys 0.22}. Niestety napotykano problemy podczas użytkowania programu w wersji 0.9. prawdopodobnie było to spowodowane błędami we wczesnej wersji oprogramowania do syntezy.
 	\subsection*{Raport z syntezy}
-	Pełny raport z syntezy znajduje się w pliku \textbf{Pliki\_projektu/synth.log}
-	\section*{Symulacja i testy}
-	\section*{Struktura plików}
+	Pełny raport z syntezy znajduje się w pliku \textbf{Pliki\_projektu/synth.log}. Poniżej znajduje się sumaryczne podsumowanie syntezy w postaci wyliczenia ilości użytych bramek i oszacowanie ilości potrzebnych tranzystorów do budowy układu. 
 	
+	\begin{program}
+		\begin{verbatim}
+=== design hierarchy ===
+
+exe_unit_w6_rtl                   1
+$paramod\bit_changer\N=s32'00000000000000000000000000001000      1
+$paramod\comparator\N=s32'00000000000000000000000000001000      1
+$paramod\shifter\N=s32'00000000000000000000000000001000      1
+$paramod\subtractor\N=s32'00000000000000000000000000001000      1
+
+Number of wires:                461
+Number of wire bits:            636
+Number of public wires:          38
+Number of public wire bits:     213
+Number of memories:               0
+Number of memory bits:            0
+Number of processes:              0
+Number of cells:                480
+$_AND_                        200
+$_NOT_                         61
+$_OR_                         178
+$_SDFF_PN0_                    18
+$_XOR_                         23
+
+Estimated number of transistors:       2666+
+		\end{verbatim}
+		\caption*{Wyliczenie ilości użytych bramek i oszacowanie ilości tranzystorów użytych do budowy jednostki}
+		\label{output:instantions}
+	\end{program}
+	
+	\section*{Symulacja i testy}
+	
+	\begin{figure}[!h]
+	\begin{center}
+		\vspace{-20pt}
+		\includegraphics[width=1.1\textwidth]{Obrazki/Testy_chg_lnk.png}
+		\caption*{Testy testów \textbf{exe\_unit\_w6}}
+	\end{center}
+\end{figure}
+
+	
+	
+	\section*{Struktura plików}
+	Wszystkie pliki modelu i syntezy są umieszczone w katalogu \textbf{Pliki\_projektu}. Wewnątrz katalogu znajdują się logi  
 \end{document}

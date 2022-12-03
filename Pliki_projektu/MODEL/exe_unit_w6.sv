@@ -1,4 +1,4 @@
-`include "macros.hv"
+`include "../INCLUDE/macros.hv"
 
 module exe_unit_w6(in_a, in_b, i_op, i_clk, i_rst, o_out, o_status);
 

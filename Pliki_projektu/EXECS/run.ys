@@ -1,9 +1,12 @@
+# wczytanie plikiu include
+# verilog_defaults -add 
+
 # Wczytanie pliku modelu
-    read_verilog -sv exe_unit_w6.sv
-    read_verilog -sv shifter.sv
-    read_verilog -sv bit_changer.sv
-    read_verilog -sv subtractor.sv
-    read_verilog -sv comparator.sv
+    read_verilog -sv ../MODEL/exe_unit_w6.sv
+    read_verilog -sv ../MODEL/shifter.sv
+    read_verilog -sv ../MODEL/bit_changer.sv
+    read_verilog -sv ../MODEL/subtractor.sv
+    read_verilog -sv ../MODEL/comparator.sv
     
 # Utworzenie kopi modulu z inna nazwa
     copy exe_unit_w6 exe_unit_w6_rtl
@@ -21,7 +24,7 @@
     opt_clean
 
 # Zapis wyniku symulacji
-    write_verilog -noattr exe_unit_w6_rtl.sv
+    write_verilog -noattr ../RTL/exe_unit_w6_rtl.sv
     
 # Wypisanie statystyki uzytych bramek
     stat -tech cmos

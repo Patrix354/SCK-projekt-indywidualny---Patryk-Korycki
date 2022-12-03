@@ -61,45 +61,45 @@ module testbench;
         //     s_rst = '0;
         // #2
 ////////////////////////////////////////////////
-            s_op = 2'b10;  // Shifter 
+        //     s_op = 2'b10;  // Shifter 
              
-            s_a = 8'b11000001;  //Flaga ERR
-            s_b = 8'b10000001;
-        #2
-            s_a = 8'b00001001;  //Obl testowe
-            s_b = 8'b00000001;
-        #2
-            s_a = 8'b11111111;  // Przepełnienie + flaga single
-            s_b = 8'b00000001;
-        #2
-            s_a = 8'b00000110;  //Przepełnienie + zachowanie znaku
-            s_b = 8'b00000101;
-        #2
-            s_a = 8'b10000001;  // Zachowanie znaku (+ przepełnienie ?)
-            s_b = 8'b00000010;
-        #2
-            s_rst = '0;
-        #2
-/////////////////////////////////////////////
-        //     s_op = 2'b11;   // Zmieniacz bitu
-
-        //     s_a = 8'b00000000;  //ERR
+        //     s_a = 8'b11000001;  //Flaga ERR
         //     s_b = 8'b10000001;
         // #2
-        //     s_a = 8'b00000000;  //ERR
-        //     s_b = 8'b01110000;
-        // #2
-        //     s_a = 8'b10110000;  //EVEN
-        //     s_b = 8'b00000000;
-        // #2
-        //     s_a = 8'b11111100;  //SINGLE
+        //     s_a = 8'b00001001;  //Obl testowe
         //     s_b = 8'b00000001;
         // #2
-        //     s_a = 8'b01100110;   //-
-        //     s_b = 8'b00000011;
+        //     s_a = 8'b11111111;  // Przepełnienie + flaga single
+        //     s_b = 8'b00000001;
+        // #2
+        //     s_a = 8'b00000110;  //Przepełnienie + zachowanie znaku
+        //     s_b = 8'b00000101;
+        // #2
+        //     s_a = 8'b10000001;  // Zachowanie znaku (+ przepełnienie ?)
+        //     s_b = 8'b00000010;
         // #2
         //     s_rst = '0;
         // #2
+/////////////////////////////////////////////
+            s_op = 2'b11;   // Zmieniacz bitu
+
+            s_a = 8'b00000000;  //ERR
+            s_b = 8'b10000001;
+        #2
+            s_a = 8'b00000000;  //ERR
+            s_b = 8'b01110000;
+        #2
+            s_a = 8'b10110000;  //EVEN
+            s_b = 8'b00000000;
+        #2
+            s_a = 8'b11111100;  //SINGLE
+            s_b = 8'b00000001;
+        #2
+            s_a = 8'b01100110;   //-
+            s_b = 8'b00000011;
+        #2
+            s_rst = '0;
+        #2
             $display("Done");
             $finish;
         end

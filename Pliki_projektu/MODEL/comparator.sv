@@ -1,4 +1,4 @@
-`include "macros.hv"
+`include "../INCLUDE/macros.hv"
 
 module comparator(in_a, in_b, o_out);
 

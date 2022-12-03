@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  3 DEC 2022 11:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  3 DEC 2022 12:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -292,14 +292,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 25.
-<Schemat_blokowy.png, id=1, 2634.84375pt x 1978.39125pt>
-File: Schemat_blokowy.png Graphic file (type png)
-<use Schemat_blokowy.png>
-Package pdftex.def Info: Schemat_blokowy.png  used on input line 31.
+<Obrazki/Schemat_blokowy.png, id=1, 2634.84375pt x 1978.39125pt>
+File: Obrazki/Schemat_blokowy.png Graphic file (type png)
+<use Obrazki/Schemat_blokowy.png>
+Package pdftex.def Info: Obrazki/Schemat_blokowy.png  used on input line 31.
 (pdftex.def)             Requested size: 455.24408pt x 341.81624pt.
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Schemat_blokowy.png>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Obrazki/Schemat_blokowy.
+png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 45.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -326,13 +327,27 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 13.
  (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [3] [4]
+) [3]
+<Obrazki/Testy_chg_lnk.png, id=23, 1165.35374pt x 214.55156pt>
+File: Obrazki/Testy_chg_lnk.png Graphic file (type png)
+<use Obrazki/Testy_chg_lnk.png>
+Package pdftex.def Info: Obrazki/Testy_chg_lnk.png  used on input line 180.
+(pdftex.def)             Requested size: 500.77126pt x 92.19643pt.
+
+Overfull \hbox (45.52718pt too wide) in paragraph at lines 180--181
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4] [5 <./Obrazki/Testy_chg_lnk.png (PNG copy)>]
 (./Dokumentacja_exe_unit_w6.aux) ) 
 Here is how much of TeX's memory you used:
- 6648 strings out of 478238
- 109303 string characters out of 5850455
- 424314 words of memory out of 5000000
- 24840 multiletter control sequences out of 15000+600000
+ 6657 strings out of 478238
+ 109577 string characters out of 5850455
+ 424362 words of memory out of 5000000
+ 24847 multiletter control sequences out of 15000+600000
  479736 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,10n,63p,766b,401s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -344,10 +359,10 @@ nts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
 1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/
 share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on Dokumentacja_exe_unit_w6.pdf (4 pages, 274093 bytes).
+Output written on Dokumentacja_exe_unit_w6.pdf (5 pages, 310782 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 64 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

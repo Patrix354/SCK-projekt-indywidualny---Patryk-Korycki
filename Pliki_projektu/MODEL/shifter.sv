@@ -1,4 +1,4 @@
-`include "macros.hv"
+`include "../INCLUDE/macros.hv"
 
 module shifter(in_a, in_b, o_out, o_ERR, o_ovf);
 

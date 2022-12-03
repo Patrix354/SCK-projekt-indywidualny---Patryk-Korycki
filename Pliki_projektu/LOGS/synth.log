@@ -24,28 +24,28 @@
 
 -- Executing script file `run.ys' --
 
-1. Executing Verilog-2005 frontend: exe_unit_w6.sv
-Parsing SystemVerilog input from `exe_unit_w6.sv' to AST representation.
+1. Executing Verilog-2005 frontend: MODEL/exe_unit_w6.sv
+Parsing SystemVerilog input from `MODEL/exe_unit_w6.sv' to AST representation.
 Generating RTLIL representation for module `\exe_unit_w6'.
 Successfully finished Verilog frontend.
 
-2. Executing Verilog-2005 frontend: shifter.sv
-Parsing SystemVerilog input from `shifter.sv' to AST representation.
+2. Executing Verilog-2005 frontend: MODEL/shifter.sv
+Parsing SystemVerilog input from `MODEL/shifter.sv' to AST representation.
 Generating RTLIL representation for module `\shifter'.
 Successfully finished Verilog frontend.
 
-3. Executing Verilog-2005 frontend: bit_changer.sv
-Parsing SystemVerilog input from `bit_changer.sv' to AST representation.
+3. Executing Verilog-2005 frontend: MODEL/bit_changer.sv
+Parsing SystemVerilog input from `MODEL/bit_changer.sv' to AST representation.
 Generating RTLIL representation for module `\bit_changer'.
 Successfully finished Verilog frontend.
 
-4. Executing Verilog-2005 frontend: subtractor.sv
-Parsing SystemVerilog input from `subtractor.sv' to AST representation.
+4. Executing Verilog-2005 frontend: MODEL/subtractor.sv
+Parsing SystemVerilog input from `MODEL/subtractor.sv' to AST representation.
 Generating RTLIL representation for module `\subtractor'.
 Successfully finished Verilog frontend.
 
-5. Executing Verilog-2005 frontend: comparator.sv
-Parsing SystemVerilog input from `comparator.sv' to AST representation.
+5. Executing Verilog-2005 frontend: MODEL/comparator.sv
+Parsing SystemVerilog input from `MODEL/comparator.sv' to AST representation.
 Generating RTLIL representation for module `\comparator'.
 Successfully finished Verilog frontend.
 
@@ -123,13 +123,13 @@ Removed 0 unused modules.
 Cleaned up 0 empty switches.
 
 7.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 1 switch rules as full_case in process $proc$bit_changer.sv:0$106 in module $paramod\bit_changer\N=s32'00000000000000000000000000001000.
-Marked 2 switch rules as full_case in process $proc$shifter.sv:0$101 in module $paramod\shifter\N=s32'00000000000000000000000000001000.
-Marked 4 switch rules as full_case in process $proc$comparator.sv:0$90 in module $paramod\comparator\N=s32'00000000000000000000000000001000.
-Marked 4 switch rules as full_case in process $proc$subtractor.sv:0$77 in module $paramod\subtractor\N=s32'00000000000000000000000000001000.
-Marked 1 switch rules as full_case in process $proc$exe_unit_w6.sv:39$3 in module exe_unit_w6_rtl.
-Removed 1 dead cases from process $proc$exe_unit_w6.sv:0$5 in module exe_unit_w6_rtl.
-Marked 3 switch rules as full_case in process $proc$exe_unit_w6.sv:0$5 in module exe_unit_w6_rtl.
+Marked 1 switch rules as full_case in process $proc$MODEL/bit_changer.sv:0$106 in module $paramod\bit_changer\N=s32'00000000000000000000000000001000.
+Marked 2 switch rules as full_case in process $proc$MODEL/shifter.sv:0$101 in module $paramod\shifter\N=s32'00000000000000000000000000001000.
+Marked 4 switch rules as full_case in process $proc$MODEL/comparator.sv:0$90 in module $paramod\comparator\N=s32'00000000000000000000000000001000.
+Marked 4 switch rules as full_case in process $proc$MODEL/subtractor.sv:0$77 in module $paramod\subtractor\N=s32'00000000000000000000000000001000.
+Marked 1 switch rules as full_case in process $proc$MODEL/exe_unit_w6.sv:39$3 in module exe_unit_w6_rtl.
+Removed 1 dead cases from process $proc$MODEL/exe_unit_w6.sv:0$5 in module exe_unit_w6_rtl.
+Marked 3 switch rules as full_case in process $proc$MODEL/exe_unit_w6.sv:0$5 in module exe_unit_w6_rtl.
 Removed a total of 1 dead cases.
 
 7.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
@@ -145,21 +145,21 @@ Converted 0 switches.
 <suppressed ~15 debug messages>
 
 7.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `$paramod\bit_changer\N=s32'00000000000000000000000000001000.$proc$bit_changer.sv:0$106'.
+Creating decoders for process `$paramod\bit_changer\N=s32'00000000000000000000000000001000.$proc$MODEL/bit_changer.sv:0$106'.
      1/2: $1\o_out[7:0]
      2/2: $1\o_ERR[0:0]
-Creating decoders for process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$101'.
+Creating decoders for process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$MODEL/shifter.sv:0$101'.
      1/5: $2\o_ovf[0:0]
      2/5: $1\o_ovf[0:0]
      3/5: $1\s_out[15:0]
      4/5: $1\o_out[7:0]
      5/5: $1\o_ERR[0:0]
-Creating decoders for process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$90'.
+Creating decoders for process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$MODEL/comparator.sv:0$90'.
      1/4: $4\o_out[0:0]
      2/4: $3\o_out[0:0]
      3/4: $2\o_out[0:0]
      4/4: $1\o_out[0:0]
-Creating decoders for process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$subtractor.sv:0$77'.
+Creating decoders for process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$MODEL/subtractor.sv:0$77'.
      1/11: $4\s_carry[0:0]
      2/11: $4\s_out[6:0]
      3/11: $4\s_sign[0:0]
@@ -171,11 +171,11 @@ Creating decoders for process `$paramod\subtractor\N=s32'00000000000000000000000
      9/11: $1\s_sign[0:0]
     10/11: $1\s_carry[0:0]
     11/11: $1\s_out[6:0]
-Creating decoders for process `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:39$3'.
+Creating decoders for process `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:39$3'.
      1/3: $0\s_op[1:0]
      2/3: $0\s_b[7:0]
      3/3: $0\s_a[7:0]
-Creating decoders for process `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:0$5'.
+Creating decoders for process `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:0$5'.
      1/7: $6\o_status[3:3]
      2/7: $5\o_status[1:1]
      3/7: $4\o_status[3:3]
@@ -185,46 +185,46 @@ Creating decoders for process `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:0$5'.
      7/7: $1\o_out[7:0]
 
 7.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `$paramod\bit_changer\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\bit_changer\N=s32'00000000000000000000000000001000.$proc$bit_changer.sv:0$106'.
-No latch inferred for signal `$paramod\bit_changer\N=s32'00000000000000000000000000001000.\o_ERR' from process `$paramod\bit_changer\N=s32'00000000000000000000000000001000.$proc$bit_changer.sv:0$106'.
-No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$101'.
-No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_ERR' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$101'.
-No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_ovf' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$101'.
-No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\s_out' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$101'.
-No latch inferred for signal `$paramod\comparator\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$90'.
-No latch inferred for signal `$paramod\subtractor\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$subtractor.sv:0$77'.
-No latch inferred for signal `$paramod\subtractor\N=s32'00000000000000000000000000001000.\o_carry' from process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$subtractor.sv:0$77'.
-No latch inferred for signal `$paramod\subtractor\N=s32'00000000000000000000000000001000.\s_out' from process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$subtractor.sv:0$77'.
-No latch inferred for signal `$paramod\subtractor\N=s32'00000000000000000000000000001000.\s_carry' from process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$subtractor.sv:0$77'.
-No latch inferred for signal `$paramod\subtractor\N=s32'00000000000000000000000000001000.\s_sign' from process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$subtractor.sv:0$77'.
-No latch inferred for signal `\exe_unit_w6_rtl.\o_status' from process `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:0$5'.
-No latch inferred for signal `\exe_unit_w6_rtl.\o_out' from process `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:0$5'.
-No latch inferred for signal `\exe_unit_w6_rtl.\zeros' from process `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:0$5'.
-No latch inferred for signal `\exe_unit_w6_rtl.$fordecl_block$1.i' from process `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:0$5'.
+No latch inferred for signal `$paramod\bit_changer\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\bit_changer\N=s32'00000000000000000000000000001000.$proc$MODEL/bit_changer.sv:0$106'.
+No latch inferred for signal `$paramod\bit_changer\N=s32'00000000000000000000000000001000.\o_ERR' from process `$paramod\bit_changer\N=s32'00000000000000000000000000001000.$proc$MODEL/bit_changer.sv:0$106'.
+No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$MODEL/shifter.sv:0$101'.
+No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_ERR' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$MODEL/shifter.sv:0$101'.
+No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\o_ovf' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$MODEL/shifter.sv:0$101'.
+No latch inferred for signal `$paramod\shifter\N=s32'00000000000000000000000000001000.\s_out' from process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$MODEL/shifter.sv:0$101'.
+No latch inferred for signal `$paramod\comparator\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$MODEL/comparator.sv:0$90'.
+No latch inferred for signal `$paramod\subtractor\N=s32'00000000000000000000000000001000.\o_out' from process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$MODEL/subtractor.sv:0$77'.
+No latch inferred for signal `$paramod\subtractor\N=s32'00000000000000000000000000001000.\o_carry' from process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$MODEL/subtractor.sv:0$77'.
+No latch inferred for signal `$paramod\subtractor\N=s32'00000000000000000000000000001000.\s_out' from process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$MODEL/subtractor.sv:0$77'.
+No latch inferred for signal `$paramod\subtractor\N=s32'00000000000000000000000000001000.\s_carry' from process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$MODEL/subtractor.sv:0$77'.
+No latch inferred for signal `$paramod\subtractor\N=s32'00000000000000000000000000001000.\s_sign' from process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$MODEL/subtractor.sv:0$77'.
+No latch inferred for signal `\exe_unit_w6_rtl.\o_status' from process `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:0$5'.
+No latch inferred for signal `\exe_unit_w6_rtl.\o_out' from process `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:0$5'.
+No latch inferred for signal `\exe_unit_w6_rtl.\zeros' from process `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:0$5'.
+No latch inferred for signal `\exe_unit_w6_rtl.$fordecl_block$1.i' from process `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:0$5'.
 
 7.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\exe_unit_w6_rtl.\s_op' using process `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:39$3'.
+Creating register for signal `\exe_unit_w6_rtl.\s_op' using process `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:39$3'.
   created $dff cell `$procdff$272' with positive edge clock.
-Creating register for signal `\exe_unit_w6_rtl.\s_a' using process `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:39$3'.
+Creating register for signal `\exe_unit_w6_rtl.\s_a' using process `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:39$3'.
   created $dff cell `$procdff$273' with positive edge clock.
-Creating register for signal `\exe_unit_w6_rtl.\s_b' using process `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:39$3'.
+Creating register for signal `\exe_unit_w6_rtl.\s_b' using process `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:39$3'.
   created $dff cell `$procdff$274' with positive edge clock.
 
 7.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 7.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Found and cleaned up 1 empty switch in `$paramod\bit_changer\N=s32'00000000000000000000000000001000.$proc$bit_changer.sv:0$106'.
-Removing empty process `$paramod\bit_changer\N=s32'00000000000000000000000000001000.$proc$bit_changer.sv:0$106'.
-Found and cleaned up 2 empty switches in `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$101'.
-Removing empty process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$shifter.sv:0$101'.
-Found and cleaned up 4 empty switches in `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$90'.
-Removing empty process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$comparator.sv:0$90'.
-Found and cleaned up 4 empty switches in `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$subtractor.sv:0$77'.
-Removing empty process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$subtractor.sv:0$77'.
-Found and cleaned up 1 empty switch in `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:39$3'.
-Removing empty process `exe_unit_w6_rtl.$proc$exe_unit_w6.sv:39$3'.
-Found and cleaned up 3 empty switches in `\exe_unit_w6_rtl.$proc$exe_unit_w6.sv:0$5'.
-Removing empty process `exe_unit_w6_rtl.$proc$exe_unit_w6.sv:0$5'.
+Found and cleaned up 1 empty switch in `$paramod\bit_changer\N=s32'00000000000000000000000000001000.$proc$MODEL/bit_changer.sv:0$106'.
+Removing empty process `$paramod\bit_changer\N=s32'00000000000000000000000000001000.$proc$MODEL/bit_changer.sv:0$106'.
+Found and cleaned up 2 empty switches in `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$MODEL/shifter.sv:0$101'.
+Removing empty process `$paramod\shifter\N=s32'00000000000000000000000000001000.$proc$MODEL/shifter.sv:0$101'.
+Found and cleaned up 4 empty switches in `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$MODEL/comparator.sv:0$90'.
+Removing empty process `$paramod\comparator\N=s32'00000000000000000000000000001000.$proc$MODEL/comparator.sv:0$90'.
+Found and cleaned up 4 empty switches in `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$MODEL/subtractor.sv:0$77'.
+Removing empty process `$paramod\subtractor\N=s32'00000000000000000000000000001000.$proc$MODEL/subtractor.sv:0$77'.
+Found and cleaned up 1 empty switch in `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:39$3'.
+Removing empty process `exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:39$3'.
+Found and cleaned up 3 empty switches in `\exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:0$5'.
+Removing empty process `exe_unit_w6_rtl.$proc$MODEL/exe_unit_w6.sv:0$5'.
 Cleaned up 15 empty switches.
 
 7.2.12. Executing OPT_EXPR pass (perform const folding).
@@ -585,22 +585,22 @@ Optimizing module exe_unit_w6_rtl.
 7.8.16. Finished OPT passes. (There is nothing left to do.)
 
 7.9. Executing WREDUCE pass (reducing word size of cells).
-Removed top 28 bits (of 32) from port B of cell $paramod\bit_changer\N=s32'00000000000000000000000000001000.$gt$bit_changer.sv:13$107 ($gt).
-Removed top 31 bits (of 32) from port A of cell $paramod\bit_changer\N=s32'00000000000000000000000000001000.$shl$bit_changer.sv:18$109 ($shl).
-Removed top 24 bits (of 32) from port Y of cell $paramod\bit_changer\N=s32'00000000000000000000000000001000.$or$bit_changer.sv:18$110 ($or).
-Removed top 24 bits (of 32) from port B of cell $paramod\bit_changer\N=s32'00000000000000000000000000001000.$or$bit_changer.sv:18$110 ($or).
-Removed top 24 bits (of 32) from port Y of cell $paramod\bit_changer\N=s32'00000000000000000000000000001000.$shl$bit_changer.sv:18$109 ($shl).
-Removed top 24 bits (of 32) from wire $paramod\bit_changer\N=s32'00000000000000000000000000001000.$or$bit_changer.sv:18$110_Y.
-Removed top 24 bits (of 32) from wire $paramod\bit_changer\N=s32'00000000000000000000000000001000.$shl$bit_changer.sv:18$109_Y.
-Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$exe_unit_w6.sv:79$9 ($not).
-Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$exe_unit_w6.sv:79$13 ($not).
-Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$exe_unit_w6.sv:79$17 ($not).
-Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$exe_unit_w6.sv:79$21 ($not).
-Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$exe_unit_w6.sv:79$25 ($not).
-Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$exe_unit_w6.sv:79$29 ($not).
-Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$exe_unit_w6.sv:79$33 ($not).
-Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$exe_unit_w6.sv:79$37 ($not).
-Removed top 30 bits (of 32) from port B of cell exe_unit_w6_rtl.$eq$exe_unit_w6.sv:86$42 ($eq).
+Removed top 28 bits (of 32) from port B of cell $paramod\bit_changer\N=s32'00000000000000000000000000001000.$gt$MODEL/bit_changer.sv:13$107 ($gt).
+Removed top 31 bits (of 32) from port A of cell $paramod\bit_changer\N=s32'00000000000000000000000000001000.$shl$MODEL/bit_changer.sv:18$109 ($shl).
+Removed top 24 bits (of 32) from port Y of cell $paramod\bit_changer\N=s32'00000000000000000000000000001000.$or$MODEL/bit_changer.sv:18$110 ($or).
+Removed top 24 bits (of 32) from port B of cell $paramod\bit_changer\N=s32'00000000000000000000000000001000.$or$MODEL/bit_changer.sv:18$110 ($or).
+Removed top 24 bits (of 32) from port Y of cell $paramod\bit_changer\N=s32'00000000000000000000000000001000.$shl$MODEL/bit_changer.sv:18$109 ($shl).
+Removed top 24 bits (of 32) from wire $paramod\bit_changer\N=s32'00000000000000000000000000001000.$or$MODEL/bit_changer.sv:18$110_Y.
+Removed top 24 bits (of 32) from wire $paramod\bit_changer\N=s32'00000000000000000000000000001000.$shl$MODEL/bit_changer.sv:18$109_Y.
+Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$MODEL/exe_unit_w6.sv:79$9 ($not).
+Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$MODEL/exe_unit_w6.sv:79$13 ($not).
+Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$MODEL/exe_unit_w6.sv:79$17 ($not).
+Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$MODEL/exe_unit_w6.sv:79$21 ($not).
+Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$MODEL/exe_unit_w6.sv:79$25 ($not).
+Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$MODEL/exe_unit_w6.sv:79$29 ($not).
+Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$MODEL/exe_unit_w6.sv:79$33 ($not).
+Removed top 31 bits (of 32) from port A of cell exe_unit_w6_rtl.$not$MODEL/exe_unit_w6.sv:79$37 ($not).
+Removed top 30 bits (of 32) from port B of cell exe_unit_w6_rtl.$eq$MODEL/exe_unit_w6.sv:86$42 ($eq).
 Removed top 1 bits (of 2) from port B of cell exe_unit_w6_rtl.$procmux$260_CMP0 ($eq).
 
 7.10. Executing PEEPOPT pass (run peephole optimizers).
@@ -616,43 +616,43 @@ Removed 0 unused cells and 2 unused wires.
 
 7.12. Executing ALUMACC pass (create $alu and $macc cells).
 Extracting $alu and $macc cells in module $paramod\bit_changer\N=s32'00000000000000000000000000001000:
-  creating $alu model for $gt$bit_changer.sv:13$107 ($gt): new $alu
-  creating $alu cell for $gt$bit_changer.sv:13$107: $auto$alumacc.cc:485:replace_alu$290
+  creating $alu model for $gt$MODEL/bit_changer.sv:13$107 ($gt): new $alu
+  creating $alu cell for $gt$MODEL/bit_changer.sv:13$107: $auto$alumacc.cc:485:replace_alu$290
   created 1 $alu and 0 $macc cells.
 Extracting $alu and $macc cells in module $paramod\comparator\N=s32'00000000000000000000000000001000:
-  creating $alu model for $ge$comparator.sv:18$97 ($ge): new $alu
-  creating $alu model for $le$comparator.sv:21$99 ($le): merged with $ge$comparator.sv:18$97.
-  creating $alu cell for $ge$comparator.sv:18$97, $le$comparator.sv:21$99: $auto$alumacc.cc:485:replace_alu$296
+  creating $alu model for $ge$MODEL/comparator.sv:18$97 ($ge): new $alu
+  creating $alu model for $le$MODEL/comparator.sv:21$99 ($le): merged with $ge$MODEL/comparator.sv:18$97.
+  creating $alu cell for $ge$MODEL/comparator.sv:18$97, $le$MODEL/comparator.sv:21$99: $auto$alumacc.cc:485:replace_alu$296
   created 1 $alu and 0 $macc cells.
 Extracting $alu and $macc cells in module $paramod\shifter\N=s32'00000000000000000000000000001000:
   created 0 $alu and 0 $macc cells.
 Extracting $alu and $macc cells in module $paramod\subtractor\N=s32'00000000000000000000000000001000:
-  creating $macc model for $add$subtractor.sv:28$86 ($add).
-  creating $macc model for $sub$subtractor.sv:19$81 ($sub).
-  creating $macc model for $sub$subtractor.sv:23$82 ($sub).
-  creating $alu model for $macc $sub$subtractor.sv:23$82.
-  creating $alu model for $macc $sub$subtractor.sv:19$81.
-  creating $alu model for $macc $add$subtractor.sv:28$86.
-  creating $alu model for $ge$subtractor.sv:18$80 ($ge): merged with $sub$subtractor.sv:23$82.
-  creating $alu cell for $sub$subtractor.sv:19$81: $auto$alumacc.cc:485:replace_alu$311
-  creating $alu cell for $add$subtractor.sv:28$86: $auto$alumacc.cc:485:replace_alu$314
-  creating $alu cell for $sub$subtractor.sv:23$82, $ge$subtractor.sv:18$80: $auto$alumacc.cc:485:replace_alu$317
+  creating $macc model for $add$MODEL/subtractor.sv:28$86 ($add).
+  creating $macc model for $sub$MODEL/subtractor.sv:19$81 ($sub).
+  creating $macc model for $sub$MODEL/subtractor.sv:23$82 ($sub).
+  creating $alu model for $macc $sub$MODEL/subtractor.sv:23$82.
+  creating $alu model for $macc $sub$MODEL/subtractor.sv:19$81.
+  creating $alu model for $macc $add$MODEL/subtractor.sv:28$86.
+  creating $alu model for $ge$MODEL/subtractor.sv:18$80 ($ge): merged with $sub$MODEL/subtractor.sv:23$82.
+  creating $alu cell for $sub$MODEL/subtractor.sv:19$81: $auto$alumacc.cc:485:replace_alu$311
+  creating $alu cell for $add$MODEL/subtractor.sv:28$86: $auto$alumacc.cc:485:replace_alu$314
+  creating $alu cell for $sub$MODEL/subtractor.sv:23$82, $ge$MODEL/subtractor.sv:18$80: $auto$alumacc.cc:485:replace_alu$317
   created 3 $alu and 0 $macc cells.
 Extracting $alu and $macc cells in module exe_unit_w6_rtl:
-  creating $macc model for $add$exe_unit_w6.sv:79$15 ($add).
-  creating $macc model for $add$exe_unit_w6.sv:79$19 ($add).
-  creating $macc model for $add$exe_unit_w6.sv:79$23 ($add).
-  creating $macc model for $add$exe_unit_w6.sv:79$27 ($add).
-  creating $macc model for $add$exe_unit_w6.sv:79$31 ($add).
-  creating $macc model for $add$exe_unit_w6.sv:79$35 ($add).
-  creating $macc model for $add$exe_unit_w6.sv:79$39 ($add).
-  merging $macc model for $add$exe_unit_w6.sv:79$35 into $add$exe_unit_w6.sv:79$39.
-  merging $macc model for $add$exe_unit_w6.sv:79$31 into $add$exe_unit_w6.sv:79$39.
-  merging $macc model for $add$exe_unit_w6.sv:79$27 into $add$exe_unit_w6.sv:79$39.
-  merging $macc model for $add$exe_unit_w6.sv:79$23 into $add$exe_unit_w6.sv:79$39.
-  merging $macc model for $add$exe_unit_w6.sv:79$19 into $add$exe_unit_w6.sv:79$39.
-  merging $macc model for $add$exe_unit_w6.sv:79$15 into $add$exe_unit_w6.sv:79$39.
-  creating $macc cell for $add$exe_unit_w6.sv:79$39: $auto$alumacc.cc:365:replace_macc$326
+  creating $macc model for $add$MODEL/exe_unit_w6.sv:79$15 ($add).
+  creating $macc model for $add$MODEL/exe_unit_w6.sv:79$19 ($add).
+  creating $macc model for $add$MODEL/exe_unit_w6.sv:79$23 ($add).
+  creating $macc model for $add$MODEL/exe_unit_w6.sv:79$27 ($add).
+  creating $macc model for $add$MODEL/exe_unit_w6.sv:79$31 ($add).
+  creating $macc model for $add$MODEL/exe_unit_w6.sv:79$35 ($add).
+  creating $macc model for $add$MODEL/exe_unit_w6.sv:79$39 ($add).
+  merging $macc model for $add$MODEL/exe_unit_w6.sv:79$35 into $add$MODEL/exe_unit_w6.sv:79$39.
+  merging $macc model for $add$MODEL/exe_unit_w6.sv:79$31 into $add$MODEL/exe_unit_w6.sv:79$39.
+  merging $macc model for $add$MODEL/exe_unit_w6.sv:79$27 into $add$MODEL/exe_unit_w6.sv:79$39.
+  merging $macc model for $add$MODEL/exe_unit_w6.sv:79$23 into $add$MODEL/exe_unit_w6.sv:79$39.
+  merging $macc model for $add$MODEL/exe_unit_w6.sv:79$19 into $add$MODEL/exe_unit_w6.sv:79$39.
+  merging $macc model for $add$MODEL/exe_unit_w6.sv:79$15 into $add$MODEL/exe_unit_w6.sv:79$39.
+  creating $macc cell for $add$MODEL/exe_unit_w6.sv:79$39: $auto$alumacc.cc:365:replace_macc$326
   created 0 $alu and 1 $macc cells.
 
 7.13. Executing SHARE pass (SAT-based resource sharing).
@@ -984,14 +984,14 @@ Using extmapper simplemap for cells of type $logic_not.
 Using extmapper simplemap for cells of type $eq.
 Using extmapper simplemap for cells of type $sdff.
 Using extmapper maccmap for cells of type $macc.
-  add { 31'0000000000000000000000000000000 $add$exe_unit_w6.sv:79$11_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$exe_unit_w6.sv:79$38_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$exe_unit_w6.sv:79$34_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$exe_unit_w6.sv:79$30_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$exe_unit_w6.sv:79$26_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$exe_unit_w6.sv:79$22_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$exe_unit_w6.sv:79$18_Y [0] } (32 bits, unsigned)
-  add { 31'0000000000000000000000000000000 $and$exe_unit_w6.sv:79$14_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $add$MODEL/exe_unit_w6.sv:79$11_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$MODEL/exe_unit_w6.sv:79$38_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$MODEL/exe_unit_w6.sv:79$34_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$MODEL/exe_unit_w6.sv:79$30_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$MODEL/exe_unit_w6.sv:79$26_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$MODEL/exe_unit_w6.sv:79$22_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$MODEL/exe_unit_w6.sv:79$18_Y [0] } (32 bits, unsigned)
+  add { 31'0000000000000000000000000000000 $and$MODEL/exe_unit_w6.sv:79$14_Y [0] } (32 bits, unsigned)
   packed 3 (3) bits / 3 words into adder tree
 Using extmapper simplemap for cells of type $reduce_or.
 Using extmapper simplemap for cells of type $mux.
@@ -1694,6 +1694,6 @@ Dumping module `\exe_unit_w6_rtl'.
 
    Estimated number of transistors:       2666+
 
-End of script. Logfile hash: 86619793b2, CPU: user 0.60s system 0.01s, MEM: 30.71 MB peak
+End of script. Logfile hash: 87485c368d, CPU: user 0.60s system 0.02s, MEM: 30.85 MB peak
 Yosys 0.22 (git sha1 f109fa3d4c5, gcc 12.2.0 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -fPIC -Os)
-Time spent: 51% 2x abc (0 sec), 11% 26x opt_expr (0 sec), ...
+Time spent: 52% 2x abc (0 sec), 11% 26x opt_expr (0 sec), ...

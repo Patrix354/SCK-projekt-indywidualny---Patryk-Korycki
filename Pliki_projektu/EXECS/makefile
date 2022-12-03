@@ -2,18 +2,19 @@ PROJ_NAME     = exe_unit_w6
 
 rtl: 
     # Uruchomienie syntezy yosys
-	yosys -s run.ys | tee synth.log
+	yosys -s run.ys | tee LOGS/synth.log
 
 sim: compile
     # Wykonanie skompilowanego programu symulacji
-	./${PROJ_NAME}.iveri.run
+	vvp ${PROJ_NAME}.vvp
 
 compile: clear
     # Kompilacja modulow verilog do programu wykonywalnego
 	iverilog -g2005-sv                               \
-	 *.sv    \
-		-o ${PROJ_NAME}.iveri.run                  \
-		    | tee ${PROJ_NAME}.iveri.log
+	 ../MODEL/*.sv ../RTL/*.sv   \
+	 -I ../INCLUDE 		\
+		-o ${PROJ_NAME}.vvp                  \
+		    | tee LOGS/${PROJ_NAME}.log
 
 waves:
     # Uruchomienie przegladarki przebiegow GTKWave
@@ -21,5 +22,5 @@ waves:
 	
 clear:
     # Usuwanie wyniku kompilacji Icarus Verilog
-	if [ -f ${PROJ_NAME}.iveri.run ] ; \
-	    then rm ${PROJ_NAME}.iveri.run ; fi
+	if [ -f ${PROJ_NAME}.vvp ] ; \
+	    then rm ${PROJ_NAME}.vvp ; fi

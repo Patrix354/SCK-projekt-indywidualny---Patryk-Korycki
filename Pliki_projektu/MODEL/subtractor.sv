@@ -1,4 +1,4 @@
-`include "macros.hv"
+`include "../INCLUDE/macros.hv"
 
 module subtractor(in_a, in_b, o_out, o_carry);
 
