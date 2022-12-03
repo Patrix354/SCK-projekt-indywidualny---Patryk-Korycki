@@ -1,10 +1,10 @@
 `include "macros.hv"
 
-module comparator(i_a, i_b, o_out);
+module comparator(in_a, in_b, o_out);
 
     parameter N = 8;
-    input logic [N-1:0] i_a;
-    input logic [N-1:0] i_b;
+    input logic [N-1:0] in_a;
+    input logic [N-1:0] in_b;
 
     output logic o_out;
 

@@ -13,7 +13,7 @@ compile: clear
 	iverilog -g2005-sv                               \
 	 *.sv    \
 		-o ${PROJ_NAME}.iveri.run                  \
-		    |& tee ${PROJ_NAME}.iveri.log
+		    | tee ${PROJ_NAME}.iveri.log
 
 waves:
     # Uruchomienie przegladarki przebiegow GTKWave

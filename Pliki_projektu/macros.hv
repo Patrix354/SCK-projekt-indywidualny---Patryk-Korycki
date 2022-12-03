@@ -2,11 +2,13 @@
 
 `define _MACROS_H_
 
-`define ZNAK_A i_a[N-1]
-`define ZNAK_B i_b[N-1]
+`define N_BITS 8
 
-`define MODUL_A i_a[N-2:0]
-`define MODUL_B i_b[N-2:0]
+`define ZNAK_A in_a[`N_BITS-1]
+`define ZNAK_B in_b[`N_BITS-1]
+
+`define MODUL_A in_a[`N_BITS-2:0]
+`define MODUL_B in_b[`N_BITS-2:0]
 
 `define ERROR_BIT 0
 `define EVEN_BIT 1

@@ -18,8 +18,8 @@ module testbench;
 
     logic [1:0] s_op;
 
-    exe_unit_w6     #(.BITS(BITS))   exe_unit_w6_model    (.i_a(s_a), .i_b(s_b), .i_op(s_op), .i_clk(s_clk), .i_rst(s_rst), .o_out(s_out_model), .o_status(s_status_model));    // model oryginalny
-    exe_unit_w6_rtl               exe_unit_w6_synth    (.i_a(s_a), .i_b(s_b), .i_op(s_op), .i_clk(s_clk), .i_rst(s_rst), .o_out(s_out_synth), .o_status(s_status_synth));    // model po syntezie
+    exe_unit_w6     #(.BITS(BITS))   exe_unit_w6_model    (.in_a(s_a), .in_b(s_b), .i_op(s_op), .i_clk(s_clk), .i_rst(s_rst), .o_out(s_out_model), .o_status(s_status_model));    // model oryginalny
+    exe_unit_w6_rtl               exe_unit_w6_synth    (.in_a(s_a), .in_b(s_b), .i_op(s_op), .i_clk(s_clk), .i_rst(s_rst), .o_out(s_out_synth), .o_status(s_status_synth));    // model po syntezie
 
     initial begin 
         s_clk = '0;

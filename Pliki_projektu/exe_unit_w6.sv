@@ -1,11 +1,11 @@
 `include "macros.hv"
 
-module exe_unit_w6(i_a, i_b, i_op, i_clk, i_rst, o_out, o_status);
+module exe_unit_w6(in_a, in_b, i_op, i_clk, i_rst, o_out, o_status);
 
     parameter BITS = 8;
     // Wejścia
-    input logic [BITS-1:0] i_a;
-    input logic [BITS-1:0] i_b;
+    input logic [BITS-1:0] in_a;
+    input logic [BITS-1:0] in_b;
     input logic [1:0] i_op;
     input logic i_clk;
     input logic i_rst;
@@ -31,10 +31,10 @@ module exe_unit_w6(i_a, i_b, i_op, i_clk, i_rst, o_out, o_status);
     
     int zeros;
 
-    subtractor     #(.N(BITS))   sub    (.i_a(s_a), .i_b(s_b), .o_out(s_out_sub), .o_carry(s_carry_sub));
-    comparator     #(.N(BITS))   comp    (.i_a(s_a), .i_b(s_b), .o_out(s_out_comp));
-    shifter         #(.N(BITS))  shl      (.i_a(s_a), .i_b(s_b), .o_out(s_out_shl), .o_ERR(s_ERR_shl), .o_ovf(s_ovf_shl));
-    bit_changer         #(.N(BITS))  chg      (.i_a(s_a), .i_b(s_b), .o_out(s_out_chg), .o_ERR(s_ERR_chg));
+    subtractor     #(.N(BITS))   sub    (.in_a(s_a), .in_b(s_b), .o_out(s_out_sub), .o_carry(s_carry_sub));
+    comparator     #(.N(BITS))   comp    (.in_a(s_a), .in_b(s_b), .o_out(s_out_comp));
+    shifter         #(.N(BITS))  shl      (.in_a(s_a), .in_b(s_b), .o_out(s_out_shl), .o_ERR(s_ERR_shl), .o_ovf(s_ovf_shl));
+    bit_changer         #(.N(BITS))  chg      (.in_a(s_a), .in_b(s_b), .o_out(s_out_chg), .o_ERR(s_ERR_chg));
 
     always_ff @ (posedge i_clk) begin
         if(!i_rst) begin
@@ -43,8 +43,8 @@ module exe_unit_w6(i_a, i_b, i_op, i_clk, i_rst, o_out, o_status);
             s_op <= '0;
         end
         else begin
-            s_a <= i_a;
-            s_b <= i_b;
+            s_a <= in_a;
+            s_b <= in_b;
             s_op <= i_op;
         end
     end

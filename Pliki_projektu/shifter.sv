@@ -1,10 +1,10 @@
 `include "macros.hv"
 
-module shifter(i_a, i_b, o_out, o_ERR, o_ovf);
+module shifter(in_a, in_b, o_out, o_ERR, o_ovf);
 
     parameter N = 8;
-    input logic [N-1:0] i_a;
-    input logic [N-1:0] i_b;
+    input logic [N-1:0] in_a;
+    input logic [N-1:0] in_b;
     
     output logic [N-1:0] o_out;
     output logic o_ERR;
@@ -15,7 +15,7 @@ module shifter(i_a, i_b, o_out, o_ERR, o_ovf);
     always_comb begin
         if(`ZNAK_B) begin
             o_ERR = '1;
-            o_out = '0;
+            o_out = 'x;
             s_out = '0;
             o_ovf = '0;
         end
