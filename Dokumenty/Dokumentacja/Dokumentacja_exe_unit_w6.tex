@@ -8,17 +8,18 @@
 \usepackage[polish, english]{babel}		% Polska czcionka
 \usepackage[a4paper, total={16cm, 25cm}]{geometry}	% Format Kartki
 \usepackage[T1]{fontenc}	% Też obsługa polskiego
-
+\usepackage{dirtree} % Drzewko katalogów
 \usepackage{float}	%fragmenty kodu
+\usepackage{adjustbox}
+
 \floatstyle{ruled}
 \newfloat{program}{thp}{lop}
 \floatname{program}{Kod}
 
-\usepackage{dirtree} % Drzewko katalogów
-
 %opening
 \title{\textbf{Specyfikacja modułu exe\_unit\_w6}}
 \author{Patryk Korycki, nr albumu 318529}
+\date{8 grudnia 2022 r.}
 
 \begin{document}
 	\selectlanguage{polish}{\maketitle}
@@ -60,7 +61,7 @@
 			\hline
 			\textbf{Wartość wejścia in\_op} & \textbf{Operacja} & \textbf{Flagi wyjściowe} \\ \hline
 			0b00 & Odejmowanie Liczby A od liczby B & OVF, EVEN, SINGLE \\ \hline
-			0b01 & Porównanie, czy liczba \newline A >= B. Jeśli tak, to wyjście jest dodatnie. Jeśli nie to wyjście jest zerem & EVEN, SINGLE \\ \hline
+			0b01 & Porównanie, czy liczba \newline A >= B. Jeśli tak, to wyjście jest dodatnie. Jeśli nie to wyjście jest zerem & EVEN \\ \hline
 			0b10 & Przesunięcie liczby A o B bitów w lewo (z zachowaniem znaku). Gdy B ma wartość ujemną lub jest większe od liczby bitów liczby A, zwróć błąd. & OVF, ERROR, EVEN, SINGLE \\ \hline
 			0b11 & Zmiana bitu liczby A na pozycji B. Gdy B ma wartość ujemną lub jest większe od liczby bitów liczby A, zwróć błąd. & ERROR, EVEN, SINGLE \\ \hline
 		\end{tabularx}
@@ -106,7 +107,7 @@
 	
 \subsection*{Instancjonowanie}
 
-W kodzie \ref{code:instantions} pokazano ostateczne zainstancjonowanie jednostki w użyciu. W przypadku układu przed syntezą konieczne może być zdefiniowanie liczby N, czyli ilości bitów rejestrów wejściowych i wyjściowych. Wartość ta jest przechowywana w parametrze \textbf{BITS}. Nazwy podłączonych sygnałów wewnętrznych z przedrostkiem \textbf{s\_} są jedynie przykładowe i zostały użyte podczas testowania jednostki przed i po syntezie.5
+W kodzie \ref{code:instantions} pokazano ostateczne zainstancjonowanie jednostki w użyciu. W przypadku układu przed syntezą konieczne może być zdefiniowanie liczby \textbf{N}, czyli ilości bitów rejestrów wejściowych i wyjściowych. Wartość ta jest przechowywana w module testowym jako parametr \textbf{BITS}. Nazwy podłączonych sygnałów wewnętrznych z przedrostkiem \textbf{s\_} są jedynie przykładowe i zostały użyte podczas testowania jednostki przed i po syntezie.
 
 \begin{program}
 	\begin{verbatim}
@@ -136,6 +137,8 @@ W kodzie \ref{code:instantions} pokazano ostateczne zainstancjonowanie jednostki
 	\end{itemize}
 	Każdy z modułów wykonawczych odpowiada za daną operację. Z podmodułów wychodzą sygnały zawierające wynik operacji i ewentualne flagi informacyjne. W module sterującym wchodzą one do multipleksera, który podaje na wyjście wynik wybranych flag i operacji.
 	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\section*{Synteza logiczna}
 	Synteza została przeprowadzona w programie \textbf{yosys 0.22}. Niestety napotykano problemy podczas użytkowania programu w wersji 0.9. Prawdopodobnie było to spowodowane błędami we wczesnej wersji oprogramowania do syntezy.
 	\subsection*{Raport z syntezy}
@@ -170,10 +173,128 @@ Estimated number of transistors:       2666+
 		\caption*{Wyliczenie ilości użytych bramek i oszacowanie ilości tranzystorów użytych do budowy jednostki}
 		\label{code:output}
 	\end{program}
+\vspace{-20pt}
 	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\section*{Symulacja i testy}
 	
+	Z powodu braku możliwości przeprowadzenia testów dla wszystkich możliwych przypadków wybrano kilka skrajnych przypadków testowych (tzn. zmieniających daną flagę). W przypadkach testowych literą X oznaczono nieoznaczone bity, czyli o dowolnej wartości.  Testy podzielono na scenariusze dla każdej operacji. 
 	
+	\subsection*{Odejmowanie}
+	
+	\subsubsection*{Przypadki testowe}
+	
+		\begin{table}[!ht]
+			\centering
+				\begin{adjustbox}{center}
+			\begin{tabular}{|l|l|l|l|l|l|}
+				\hline
+				\textbf{A} & \textbf{B} & \textbf{Oczekiwane wyjście} & \textbf{Flagi} & \textbf{Cel testu} \\ \hline
+				-127 & 1 &  X000 0000 & 01X0 & Flaga \textbf{OVF} \\ \hline
+				127 & -1 &  X000 0000 & 01X0 & Flaga \textbf{OVF} \\ \hline
+				-120 & -9 &  1110 1111 & 1000 & Flaga \newline \textbf{SINGLE} \\ \hline
+				110 & 11 & 1100 0011 & 0010 & Flaga \textbf{EVEN} \\ \hline
+				91 & 41 &  0011 0010 & 0000& Obliczenie próbne \\ \hline
+				91 & 41 &  0000 0000 & 0010 & Reset \\ \hline
+			\end{tabular}
+			\end{adjustbox}
+		\end{table}
+\vspace{-20pt}
+	\subsubsection*{Przebieg czasowy}
+		\begin{figure}[!h]
+		\begin{center}
+			\includegraphics[width=\textwidth]{../Testy/Wyniki_testow/Testy_sub.png}
+			\caption*{Przebieg czasowy z testów odejmowania}
+			\label{figure:test_sub}
+		\end{center}
+	\end{figure}
+	\vspace{-20pt}
+	\textbf{Pokrycie scenariusza testowego dla odejmowania: 100\%}
+	
+	\subsection*{Przesuwanie bitów}
+	\subsubsection*{Przypadki testowe}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\textbf{A} & \textbf{B} & \textbf{Oczekiwane wyjście} & \textbf{Flagi} & \textbf{Cel testu} \\ \hline
+			1100 0001 & 1000 0001 & XXXX XXXX & X0X1 & Flaga \textbf{ERROR} \\ \hline
+			0000 1001 & 0000 0001 & 0001 0010 & 0010 & Obliczenie testowe \\ \hline
+			1111 1111 & 0000 0001 & 1111 1110 & 1100 & Flaga \textbf{SINGLE} i \textbf{OVF} \\ \hline
+			0000 0110 & 0000 0101 & 0100 0000 & 0100 & Flaga \textbf{OVF} \\ \hline
+			1000 0001 & 0000 0010 & 1000 0100 & 0010 & Zachowanie znaku \\ \hline
+			1000 0001 & 0000 0010 & 0000 0000 & 0010 & Reset \\ \hline
+		\end{tabular}
+	\end{table}
+	\subsubsection*{Przebieg czasowy}
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=\textwidth]{../Testy/Wyniki_testow/Testy_shl.png}
+			\caption*{Przebieg czasowy z testów przesuwania bitów}
+			\label{figure:test_shl}
+		\end{center}
+	\end{figure}
+	\vspace{-20pt}
+	\textbf{Pokrycie scenariusza testowego dla przesuwania bitów: 100\%}
+	
+	
+	
+	\subsection*{Zamiana bitu}
+	\subsubsection*{Przypadki testowe}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\textbf{A} & \textbf{B} & \textbf{Oczekiwane wyjście} & \textbf{Flagi} & \textbf{Cel testu} \\ \hline
+			0000 0000 & 1000 0001 & XXXX XXXX & X0X1 & Flaga \textbf{ERROR} \\ \hline
+			0000 0000 & 0111 0000 & XXXX XXXX & X0X1 & Flaga \textbf{ERROR} \\ \hline
+			1011 0000 & 0000 0000 & 1011 0001 & 0010 & Flaga \textbf{EVEN} \\ \hline
+			1111 1100 & 0000 0001 & 1111 1110 & 1000 & Flaga \textbf{SINGLE} \\ \hline
+			0110 0110 & 0000 0011 & 0110 1110 & 0000 & Obliczenie próbne \\ \hline
+			0110 0110 & 0000 0010 & 0110 0110 & 0010 & Obliczenie próbne \\ \hline
+			0110 0110 & 0000 0010 & 0000 0000 & 0000 & Reset \\ \hline
+		\end{tabular}
+	\end{table}
+	\subsubsection*{Przebieg czasowy}
+			\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=\textwidth]{../Testy/Wyniki_testow/Testy_chg.png}
+			\caption*{Przebieg czasowy z testów zmiany bitu}
+			\label{figure:test_chg}
+		\end{center}
+	\end{figure}
+	\vspace{-20pt}
+	\textbf{Pokrycie scenariusza testowego dla zmiany bitu: 100\%}
+	
+	
+	\subsection*{Porównywanie}
+	\subsubsection*{Przypadki testowe}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		\textbf{A} & \textbf{B} & \textbf{Oczekiwane wyjście} & \textbf{Flagi} & \textbf{Cel testu} \\ \hline
+		-50 & 4 & XXXX XXX0 & 0010 & Flaga \textbf{EVEN} \\ \hline
+		50 & 50 & XXXX XXX1 & 0000 & Warunek gdy A = B \\ \hline
+		+0 & -0 & XXXX XXX1 & 0000 & Wynik dla różnych reprezentacji zera \\ \hline
+		-0 & +0 & XXXX XXX1 & 0000 & Wynik dla różnych reprezentacji zera \\ \hline
+		90 & 40 & XXXX XXX1 & 0000& Obliczenie próbne \\ \hline
+		-90 & 40 & XXXX XXX0 & 0010 & Reset \\ \hline
+	\end{tabular}
+\end{table}
+
+	\subsubsection*{Przebieg czasowy}
+			\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=\textwidth]{../Testy/Wyniki_testow/Testy_comp.png}
+			\caption*{Przebieg czasowy z testów porównywania}
+			\label{figure:test_comp}
+		\end{center}
+	\end{figure}
+	\vspace{-20pt}
+	\textbf{Pokrycie scenariusza testowego dla porównywania: 100\%}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Struktura plików}
 	Wszystkie pliki modelu i syntezy są umieszczone w katalogu \textbf{Pliki\_projektu}. Wewnątrz katalogu utworzono podkatalogi zgodnie z przeznaczeniem plików w nich przechowywanych:
 	

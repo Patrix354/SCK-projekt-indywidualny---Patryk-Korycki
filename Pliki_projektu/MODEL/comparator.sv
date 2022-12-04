@@ -9,16 +9,19 @@ module comparator(in_a, in_b, o_out);
     output logic o_out;
 
     always_comb begin
-        if( (`ZNAK_A ^ `ZNAK_B) && !`ZNAK_A) begin   // Gdy znaki się różnią i znak A jest na plusie wyjście ma zawsze 1
+        if(`MODUL_A == 0 && `MODUL_B == 0) begin
             o_out = 1'b1;
         end
-        else if( (`ZNAK_A ^ `ZNAK_B) && `ZNAK_A) begin // Gdy znaki się różnią i znak A jest na minusie wyjście ma zawsze 0
+        else if( (`ZNAK_A != `ZNAK_B) && `ZNAK_A == 0) begin   // Gdy znaki się różnią i znak A jest na plusie wyjście ma zawsze 1
+            o_out = 1'b1;
+        end
+        else if( (`ZNAK_A != `ZNAK_B) && `ZNAK_A == 1) begin // Gdy znaki się różnią i znak A jest na minusie wyjście ma zawsze 0
             o_out = 1'b0;
         end
-        else if(!`ZNAK_A && (`MODUL_A >= `MODUL_B)) begin   // Gdy A jest z plusem porównujemy moduły
+        else if(`ZNAK_A == 0 && (`MODUL_A >= `MODUL_B)) begin   // Gdy A jest z plusem porównujemy moduły
             o_out = 1'b1;
         end
-        else if (`ZNAK_A && (`MODUL_A <= `MODUL_B)) begin    // Gdy A jest z minusem to zmieniamy znak porównania
+        else if (`ZNAK_A == 1 && (`MODUL_A <= `MODUL_B)) begin    // Gdy A jest z minusem to zmieniamy znak porównania
             o_out = 1'b1;
         end
         else begin  // W innym przypadku wyjście ma 0

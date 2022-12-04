@@ -2,7 +2,7 @@ PROJ_NAME     = exe_unit_w6
 
 rtl: 
     # Uruchomienie syntezy yosys
-	yosys -s run.ys | tee LOGS/synth.log
+	yosys -s run.ys | tee ../LOGS/synth.log
 
 sim: compile
     # Wykonanie skompilowanego programu symulacji

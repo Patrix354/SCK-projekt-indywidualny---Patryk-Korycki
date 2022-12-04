@@ -1,6 +1,3 @@
-# wczytanie plikiu include
-# verilog_defaults -add 
-
 # Wczytanie pliku modelu
     read_verilog -sv ../MODEL/exe_unit_w6.sv
     read_verilog -sv ../MODEL/shifter.sv
