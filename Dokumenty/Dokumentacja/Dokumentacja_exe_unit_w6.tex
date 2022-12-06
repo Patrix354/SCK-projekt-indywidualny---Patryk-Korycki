@@ -23,6 +23,7 @@
 
 \begin{document}
 	\selectlanguage{polish}{\maketitle}
+	\pagenumbering{gobble}
 	
 	\begin{figure}[!h]
 		\begin{center}
@@ -71,7 +72,7 @@
 
 	
 	\subsection*{Wyjścia}
-	Na wyjściu modułu dostępne są dwie wartości: \textbf{out\_result} i \textbf{out\_status}. Wyjście \textbf{out\_result} zawiera wynik ostatnio wykonywanej operacji. Na wyjściu \textbf{out\_status} pojawiają się flagi informacyjne dotyczące ostatnio wykonanej operacji. Kolejność bitów i ich funkcje zostały opisane w tabeli 2. Każda z wykonywanych operacji ma możliwość zmiany wyłącznie wybranych flag. Pełna lista wyjść znajduje się w Tabeli \ref{table:outputs}. Flagi wyjściowe z każdej operacji są zawarte w Tabeli \ref{table:outstatus_bits}. 
+	Na wyjściu modułu dostępne są dwie wartości: \textbf{out\_result} i \textbf{out\_status}. Wyjście \textbf{out\_result} zawiera wynik ostatnio wykonywanej operacji. Na wyjściu \textbf{out\_status} pojawiają się flagi informacyjne dotyczące ostatnio wykonanej operacji. Każda z wykonywanych operacji ma możliwość zmiany wyłącznie wybranych flag (opisanych w Tabeli \ref{table:inop_values}). Pełna lista wyjść znajduje się w Tabeli \ref{table:outputs}. Flagi wyjściowe z każdej operacji są zawarte w Tabeli \ref{table:outstatus_bits}. 
 	
 	\begin{table}[!ht]
 		\centering
@@ -79,7 +80,7 @@
 			\hline
 			\textbf{Wyjście} & \textbf{Funkcja} & \textbf{Ilość bitów wejściowych} \\ \hline
 			out\_result & Wynik ostatnio wykonanej operacji & N-bitów \\ \hline
-			out\_status & Rejestr z flagami infrmacyjnymi & 4-bitów \\ \hline
+			out\_status & Rejestr z flagami infrmacyjnymi & 4-bity \\ \hline
 		\end{tabular}
 		\caption{Lista przedstawiająca wszystkie wyjścia układu}
 		\label{table:outputs}
@@ -107,7 +108,7 @@
 	
 \subsection*{Instancjonowanie}
 
-W kodzie \ref{code:instantions} pokazano ostateczne zainstancjonowanie jednostki w użyciu. W przypadku układu przed syntezą konieczne może być zdefiniowanie liczby \textbf{N}, czyli ilości bitów rejestrów wejściowych i wyjściowych. Wartość ta jest przechowywana w module testowym jako parametr \textbf{BITS}. Nazwy podłączonych sygnałów wewnętrznych z przedrostkiem \textbf{s\_} są jedynie przykładowe i zostały użyte podczas testowania jednostki przed i po syntezie.
+W kodzie \ref{code:instantions} pokazano ostateczne zainstancjonowanie jednostki w użyciu. W przypadku układu przed syntezą konieczne może być zdefiniowanie liczby \textbf{N}, czyli ilości bitów rejestrów wejściowych i wyjściowych. Wartość ta jest przechowywana w module testowym jako parametr \textbf{BITS}. Nazwy podłączonych sygnałów wewnętrznych z przedrostkiem \textbf{s\_} są jedynie przykładowe i zostały użyte podczas testowania jednostki.
 
 \begin{program}
 	\begin{verbatim}
@@ -135,7 +136,7 @@ W kodzie \ref{code:instantions} pokazano ostateczne zainstancjonowanie jednostki
 		\item \textbf{shifter} - Moduł wykonujący operację przesunięcia
 		\item \textbf{changer} - Moduł zmieniający bit na 1 na danej pozycji
 	\end{itemize}
-	Każdy z modułów wykonawczych odpowiada za daną operację. Z podmodułów wychodzą sygnały zawierające wynik operacji i ewentualne flagi informacyjne. W module sterującym wchodzą one do multipleksera, który podaje na wyjście wynik wybranych flag i operacji.
+	Każdy z modułów wykonawczych odpowiada za daną operację. Z podmodułów wychodzą sygnały zawierające wynik operacji i flagi informacyjne. W module sterującym generowane są flagi \textbf{EVEN} oraz \textbf{SINGLE} i wybierane jest wyjście odpowiedniego podmodułu.
 	
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -178,7 +179,7 @@ Estimated number of transistors:       2666+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\section*{Symulacja i testy}
 	
-	Z powodu braku możliwości przeprowadzenia testów dla wszystkich możliwych przypadków wybrano kilka skrajnych przypadków testowych (tzn. zmieniających daną flagę). W przypadkach testowych literą X oznaczono nieoznaczone bity, czyli o dowolnej wartości.  Testy podzielono na scenariusze dla każdej operacji. 
+	Z powodu braku możliwości przeprowadzenia testów dla wszystkich możliwych przypadków wybrano kilka skrajnych przypadków testowych (np. zmieniających daną flagę). W przypadkach testowych literą X oznaczono nieoznaczone bity, czyli o dowolnej wartości.  Testy podzielono na scenariusze dla każdej operacji. 
 	
 	\subsection*{Odejmowanie}
 	
@@ -219,7 +220,7 @@ Estimated number of transistors:       2666+
 			\hline
 			\textbf{A} & \textbf{B} & \textbf{Oczekiwane wyjście} & \textbf{Flagi} & \textbf{Cel testu} \\ \hline
 			1100 0001 & 1000 0001 & XXXX XXXX & X0X1 & Flaga \textbf{ERROR} \\ \hline
-			0000 1001 & 0000 0001 & 0001 0010 & 0010 & Obliczenie testowe \\ \hline
+			0000 1001 & 0000 0001 & 0001 0010 & 0010 & Obliczenie próbne \\ \hline
 			1111 1111 & 0000 0001 & 1111 1110 & 1100 & Flaga \textbf{SINGLE} i \textbf{OVF} \\ \hline
 			0000 0110 & 0000 0101 & 0100 0000 & 0100 & Flaga \textbf{OVF} \\ \hline
 			1000 0001 & 0000 0010 & 1000 0100 & 0010 & Zachowanie znaku \\ \hline
@@ -294,9 +295,13 @@ Estimated number of transistors:       2666+
 	\vspace{-20pt}
 	\textbf{Pokrycie scenariusza testowego dla porównywania: 100\%}
 	
+	\subsection*{Komentarz}
+	Wszystkie testy przebiegły zgodnie z przewidywaniami założonymi podczas projektowania. Co więcej na przebiegach czasowych wszystkich testów możemy zauważyć że wyjścia z modelu przed syntezą i modelu zsyntetyzowanego są identyczne (poza nieokreślonościami, których jednoznacznie nie da się przedstawić po syntezie). Oznacza to, że proces syntezy odbył się poprawnie. 
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Struktura plików}
 	Wszystkie pliki modelu i syntezy są umieszczone w katalogu \textbf{Pliki\_projektu}. Wewnątrz katalogu utworzono podkatalogi zgodnie z przeznaczeniem plików w nich przechowywanych:
+	\newpage
 	
 \begin{itemize}
 \item \textbf{LOGS} - Raport z syntezy i wyjście ewentualnych błędów z kompilatora. 
