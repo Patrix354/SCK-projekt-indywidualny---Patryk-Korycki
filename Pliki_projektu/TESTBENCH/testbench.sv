@@ -35,45 +35,45 @@ module testbench;
             $display("start");
             s_rst = '1;
 //////////////////////////////////////////////////////////
-        //     s_op = 2'b00;   //Subtraktor 
-        //     s_a = `MINUS 8'd127;  // -127 - 1 = 128 (przepełnienie)
-        //     s_b = 8'd1;
-        // #2
-        //     s_a = 8'd127;  // 127 - (-1) = 128 (przepełnienie)
-        //     s_b = `MINUS 8'd1;
-        // #2
-        //     s_a = `MINUS 8'd120;  // -120 - 9 = -111 (0b1110 1111 - flaga SINGLE)
-        //     s_b = `MINUS 8'd9;
-        // #2
-        //     s_a = 8'd110;   // 110 - 11 = 99 (0b1100 0011 - flaga EVEN)
-        //     s_b = 8'd11;
-        // #2
-        //     s_a = 8'd91;    // 91 - 41 = 50 (Obliczenie testowe)
-        //     s_b = 8'd41;
-        // #2
-        //     s_rst = '0; // Czy działa reset
-        // #2
+            s_op = 2'b00;   //Subtraktor 
+            s_a = `MINUS 8'd127;  // -127 - 1 = 128 (przepełnienie)
+            s_b = 8'd1;
+        #2
+            s_a = 8'd127;  // 127 - (-1) = 128 (przepełnienie)
+            s_b = `MINUS 8'd1;
+        #2
+            s_a = `MINUS 8'd120;  // -120 - 9 = -111 (0b1110 1111 - flaga SINGLE)
+            s_b = `MINUS 8'd9;
+        #2
+            s_a = 8'd110;   // 110 - 11 = 99 (0b1100 0011 - flaga EVEN)
+            s_b = 8'd11;
+        #2
+            s_a = 8'd91;    // 91 - 41 = 50 (Obliczenie testowe)
+            s_b = 8'd41;
+        #2
+            s_rst = '0; // Czy działa reset
+        #2
 ///////////////////////////////////////////////
-        //     s_op = 2'b01;   // Komparator
-        //     s_a = `MINUS 8'd50;
-        //     s_b = 8'd4;
-        // #2
-        //     s_a = 8'd50;
-        //     s_b = 8'd50;
-        // #2
-        //     s_a = `MINUS 8'd0;
-        //     s_b = 8'd0;
-        // #2
-        //     s_a = 8'd0;
-        //     s_b = `MINUS 8'd0;
-        // #2
-        //     s_a = 8'd90;
-        //     s_b = 8'd40;
-        // #2
-        //     s_a = `MINUS 8'd90;
-        //     s_b = 8'd40;
-        //     s_rst = '0;
-        // #2
+            s_op = 2'b01;   // Komparator
+            s_a = `MINUS 8'd50;
+            s_b = 8'd4;
+        #2
+            s_a = 8'd50;
+            s_b = 8'd50;
+        #2
+            s_a = `MINUS 8'd0;
+            s_b = 8'd0;
+        #2
+            s_a = 8'd0;
+            s_b = `MINUS 8'd0;
+        #2
+            s_a = 8'd90;
+            s_b = 8'd40;
+        #2
+            s_a = `MINUS 8'd90;
+            s_b = 8'd40;
+            s_rst = '0;
+        #2
 ////////////////////////////////////////////////
             s_op = 2'b10;  // Shifter 
              
@@ -95,28 +95,28 @@ module testbench;
             s_rst = '0;
         #2
 /////////////////////////////////////////////
-        //     s_op = 2'b11;   // Zmieniacz bitu
+            s_op = 2'b11;   // Zmieniacz bitu
 
-        //     s_a = 8'b00000000;  //ERR
-        //     s_b = 8'b10000001;
-        // #2
-        //     s_a = 8'b00000000;  //ERR
-        //     s_b = 8'b01110000;
-        // #2
-        //     s_a = 8'b10110000;  //EVEN
-        //     s_b = 8'b00000000;
-        // #2
-        //     s_a = 8'b11111100;  //SINGLE
-        //     s_b = 8'b00000001;
-        // #2
-        //     s_a = 8'b01100110;   //-
-        //     s_b = 8'b00000011;
-        // #2
-        //     s_a = 8'b01100110;   //-
-        //     s_b = 8'b00000010;
-        // #2
-        //     s_rst = '0;
-        // #2
+            s_a = 8'b00000000;  //ERR
+            s_b = 8'b10000001;
+        #2
+            s_a = 8'b00000000;  //ERR
+            s_b = 8'b01110000;
+        #2
+            s_a = 8'b10110000;  //EVEN
+            s_b = 8'b00000000;
+        #2
+            s_a = 8'b11111100;  //SINGLE
+            s_b = 8'b00000001;
+        #2
+            s_a = 8'b01100110;   //-
+            s_b = 8'b00000011;
+        #2
+            s_a = 8'b01100110;   //-
+            s_b = 8'b00000010;
+        #2
+            s_rst = '0;
+        #2
             $display("Done");
             $finish;
         end

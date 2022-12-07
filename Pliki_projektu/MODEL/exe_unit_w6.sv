@@ -37,7 +37,7 @@ module exe_unit_w6(in_a, in_b, i_op, i_clk, i_rst, o_out, o_status);
     changer         #(.N(BITS))  chg      (.in_a(s_a), .in_b(s_b), .o_out(s_out_chg), .o_ERR(s_ERR_chg));
 
     always_ff @ (posedge i_clk) begin
-        if(!i_rst) begin
+        if(i_rst == 0) begin
             s_a <= '0;
             s_b <= '0;
             s_op <= '0;

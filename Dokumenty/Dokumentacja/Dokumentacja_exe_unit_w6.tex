@@ -61,10 +61,10 @@
 		\begin{tabularx}{\linewidth}{|X|X|X|X|}
 			\hline
 			\textbf{Wartość wejścia in\_op} & \textbf{Operacja} & \textbf{Flagi wyjściowe} \\ \hline
-			0b00 & Odejmowanie Liczby A od liczby B & OVF, EVEN, SINGLE \\ \hline
-			0b01 & Porównanie, czy liczba \newline A >= B. Jeśli tak, to wyjście jest dodatnie. Jeśli nie to wyjście jest zerem & EVEN \\ \hline
-			0b10 & Przesunięcie liczby A o B bitów w lewo (z zachowaniem znaku). Gdy B ma wartość ujemną lub jest większe od liczby bitów liczby A, zwróć błąd. & OVF, ERROR, EVEN, SINGLE \\ \hline
-			0b11 & Zmiana bitu liczby A na pozycji B. Gdy B ma wartość ujemną lub jest większe od liczby bitów liczby A, zwróć błąd. & ERROR, EVEN, SINGLE \\ \hline
+			0b00 & Odejmowanie Liczby A od liczby B & \textbf{OVF}, \textbf{EVEN}, \textbf{SINGLE}\\ \hline
+			0b01 & Porównanie, czy liczba \newline A >= B. Jeśli tak, to wyjście jest dodatnie. Jeśli nie to wyjście jest zerem & \textbf{EVEN} \\ \hline
+			0b10 & Przesunięcie liczby A o B bitów w lewo (z zachowaniem znaku). Gdy B ma wartość ujemną lub jest większe od liczby bitów liczby A, zwróć błąd. & \textbf{OVF}, \textbf{ERROR}, \textbf{EVEN}, \textbf{SINGLE} \\ \hline
+			0b11 & Zmiana bitu liczby A na pozycji B. Gdy B ma wartość ujemną lub jest większe od liczby bitów liczby A, zwróć błąd. & \textbf{ERROR}, \textbf{EVEN}, \textbf{SINGLE} \\ \hline
 		\end{tabularx}
 		\caption{Opis poszczególnych operacji wraz z kodami wejściowymi i dostępnymi flagami}
 		\label{table:inop_values}
