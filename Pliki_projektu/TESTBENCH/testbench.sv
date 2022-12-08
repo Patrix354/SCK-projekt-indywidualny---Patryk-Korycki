@@ -52,9 +52,10 @@ module testbench;
             s_b = 8'd41;
         #2
             s_rst = '0; // Czy działa reset
-        #2
+        #4
 ///////////////////////////////////////////////
             s_op = 2'b01;   // Komparator
+            s_rst = '1;
             s_a = `MINUS 8'd50;
             s_b = 8'd4;
         #2
@@ -73,9 +74,10 @@ module testbench;
             s_a = `MINUS 8'd90;
             s_b = 8'd40;
             s_rst = '0;
-        #2
+        #4
 ////////////////////////////////////////////////
             s_op = 2'b10;  // Shifter 
+            s_rst = '1;
              
             s_a = 8'b11000001;  //Flaga ERR
             s_b = 8'b10000001;
@@ -93,9 +95,10 @@ module testbench;
             s_b = 8'b00000010;
         #2
             s_rst = '0;
-        #2
+        #4
 /////////////////////////////////////////////
             s_op = 2'b11;   // Zmieniacz bitu
+            s_rst = '1;
 
             s_a = 8'b00000000;  //ERR
             s_b = 8'b10000001;
@@ -116,7 +119,7 @@ module testbench;
             s_b = 8'b00000010;
         #2
             s_rst = '0;
-        #2
+        #4
             $display("Done");
             $finish;
         end
